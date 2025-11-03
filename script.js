@@ -1,37 +1,94 @@
-// ========== TOMBOL MASUK: Skip intro langsung ke website ==========
-const btnMasuk = document.getElementById('btnMasuk');
-if (btnMasuk) {
-  btnMasuk.addEventListener('click', () => {
-    document.body.classList.add('page-ready');
+// ========== SEQUENCE CONTROLLER ========== 
+let currentStage = 0;
+const stages = [
+  'intro',
+  'journey-mercury',
+  'journey-venus',
+  'journey-earth',
+  'journey-mars',
+  'journey-jupiter',
+  'journey-saturn',
+  'journey-uranus',
+  'meteor-impact',
+  'main-website'
+];
+
+function showStage(index) {
+  // Hide all stages
+  document.querySelectorAll('.stage').forEach(stage => {
+    stage.classList.remove('active');
   });
+  
+  // Show target stage
+  const targetStage = document.getElementById(stages[index]);
+  if (targetStage) {
+    targetStage.classList.add('active');
+    currentStage = index;
+  }
 }
 
-// ========== INTRO: Auto hide setelah animasi ==========
-window.addEventListener('load', () => {
-  // Auto masuk setelah 3 detik (atau klik tombol MASUK)
-  setTimeout(() => {
-    if (!document.body.classList.contains('page-ready')) {
-      document.body.classList.add('page-ready');
-    }
-  }, 3000); // 3 detik
-});
+// ========== TOMBOL MASUK: Start Journey ========== 
+const btnMasuk = document.getElementById('btnMasuk');
+if (btnMasuk) {
+  btnMasuk.addEventListener('click', startJourney);
+}
 
-// ========== TAHUN DINAMIS ==========
+function startJourney() {
+  // Mulai dari planet pertama (Merkurius)
+  showStage(1);
+  
+  // Auto sequence planet journey
+  let planetIndex = 1;
+  const planetInterval = setInterval(() => {
+    planetIndex++;
+    if (planetIndex <= 7) { // Sampai Uranus (index 7)
+      showStage(planetIndex);
+    } else {
+      clearInterval(planetInterval);
+      // Setelah semua planet, play meteor impact
+      setTimeout(playMeteorImpact, 1500);
+    }
+  }, 3000); // 3 detik per planet
+}
+
+// ========== METEOR IMPACT SEQUENCE ========== 
+function playMeteorImpact() {
+  showStage(8); // Show meteor impact stage
+  
+  // Play crack sound setelah 1.2 detik (saat meteor menghantam)
+  const crackSound = document.getElementById('crackSound');
+  setTimeout(() => {
+    if (crackSound) {
+      crackSound.play().catch(error => {
+        console.log('Audio autoplay blocked:', error);
+      });
+    }
+  }, 1200);
+  
+  // Setelah semua animasi selesai (3.5 detik), masuk ke website
+  setTimeout(() => {
+    showStage(9); // Show main website
+  }, 3500);
+}
+
+// ========== TAHUN DINAMIS ========== 
 document.addEventListener('DOMContentLoaded', () => {
   const yearEl = document.getElementById('year');
-  if (yearEl) yearEl.textContent = new Date().getFullYear();
+  if (yearEl) {
+    yearEl.textContent = new Date().getFullYear();
+  }
 });
 
-// ========== TOGGLE MOBILE NAV ==========
+// ========== TOGGLE MOBILE NAV ========== 
 const navToggle = document.querySelector('.nav-toggle');
 const navList = document.querySelector('.nav-list');
-if (navToggle) {
+if (navToggle && navList) {
   navToggle.addEventListener('click', () => {
     navList.classList.toggle('show');
   });
 }
 
-// ========== SMOOTH SCROLL & ACTIVE STATE ==========
+// ========== SMOOTH SCROLL & ACTIVE STATE ========== 
 const navLinks = document.querySelectorAll('.nav-link');
 const sections = document.querySelectorAll('section[id]');
 
@@ -49,35 +106,5 @@ function setActiveLink() {
     }
   });
 
-  navLinks.forEach(link => {
-    link.classList.remove('active');
-    if (link.getAttribute('href') === `#${current}`) {
-      link.classList.add('active');
-    }
-  });
-}
-
-window.addEventListener('scroll', setActiveLink);
-
-navLinks.forEach(link => {
-  link.addEventListener('click', () => {
-    if (navList) navList.classList.remove('show');
-  });
-});
-
-// ========== FORM CONTACT ==========
-const form = document.getElementById('contactForm');
-if (form) {
-  form.addEventListener('submit', (e) => {
-    e.preventDefault();
-    const name = form.name.value.trim();
-    const email = form.email.value.trim();
-    const message = form.message.value.trim();
-
-    const body = `Halo Hanif,%0D%0A%0D%0ANama: ${encodeURIComponent(name)}%0D%0AEmail: ${encodeURIComponent(email)}%0D%0APesan:%0D%0A${encodeURIComponent(message)}%0D%0A%0D%0ATerkirim dari halaman portofolio.`;
-    const subject = `Portofolio — Pesan dari ${encodeURIComponent(name || 'Pengunjung')}`;
-    const mailto = `mailto:faqihhan123@gmail.com?subject=${subject}&body=${body}`;
-
-    window.location.href = mailto;
-  });
-}
+  navLinks.forEach(link
+\<Streaming stoppped because the conversation grew too long for this model\>
