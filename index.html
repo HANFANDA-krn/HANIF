@@ -5,216 +5,334 @@
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Hanif — Portfolio</title>
 
-  <!-- Font elegan dan jelas dibaca -->
+  <!-- Google Fonts -->
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet" />
 
+  <!-- Styles & Script -->
   <link rel="stylesheet" href="styles.css" />
   <script defer src="script.js"></script>
 </head>
 <body>
 
-  <!-- INTRO: animasi galaksi biru + teks neon + meteor/planet + TOMBOL MASUK -->
-  <div id="intro" aria-hidden="true">
-    <!-- Abstrak hitam di sekitar -->
+  <!-- ========== STAGE 0: INTRO AWAL ========== -->
+  <div id="intro" class="stage active">
     <div class="intro-abstract"></div>
-    
-    <!-- Meteor animasi -->
     <div class="meteor meteor-1"></div>
     <div class="meteor meteor-2"></div>
     <div class="meteor meteor-3"></div>
-    
-    <!-- Planet -->
     <div class="planet planet-1"></div>
     <div class="planet planet-2"></div>
     
     <div class="intro-inner">
-      <!-- Baris 1 -->
       <h1 class="neon drop">MY PROFILE</h1>
-      
-      <!-- Baris 2 -->
       <p class="neon-sub drop2">Desaigned by <strong>HANIF</strong></p>
-      
-      <!-- Baris 3: TOMBOL MASUK -->
       <button id="btnMasuk" class="btn-masuk drop3">MASUK</button>
     </div>
   </div>
 
-  <!-- Header / Navbar -->
-  <header class="site-header">
-    <nav class="container nav">
-      <a href="#home" class="brand" aria-label="Ke bagian Home">HANIF</a>
-      <button class="nav-toggle" aria-label="Buka navigasi">&#9776;</button>
-      <ul class="nav-list">
-        <li><a href="#home" class="nav-link active">HOME</a></li>
-        <li><a href="#abouut" class="nav-link">ABOUUT</a></li>
-        <li><a href="#project" class="nav-link">PROJECT</a></li>
-        <li><a href="#contact" class="nav-link">CONTACT</a></li>
-      </ul>
-    </nav>
-  </header>
-
-  <main>
-    <!-- HOME -->
-    <section id="home" class="section home">
-      <div class="container home-grid">
-        <!-- Foto Profil -->
-        <div class="home-photo">
-          <!-- GANTI dengan foto profil Anda di folder assets -->
-          <img src="assets/hanif.jpg" alt="Foto Profil Hanif — Fresh Graduate TJKT" />
-        </div>
-
-        <div class="home-text">
-          <div class="for-work">For WORK</div>
-
-          <h1 class="title">Hi, I`m Hanif</h1>
-          <h2 class="subtitle">Fresh graduate TJKT</h2>
-
-          <p class="lead">
-            Halo, saya Hanif.<br/>
-            Lulusan SMK jurusan TJKT, dengan minat pada jaringan komputer dan teknologi informasi.<br/>
-            Saya siap belajar, berkembang, dan berkontribusi di dunia IT.
-          </p>
-
-          <p class="location">📍 Lokasi Banjarnnegara, Madukara</p>
-
-          <div class="cta-row">
-            <!-- Ganti file CV Anda pada folder assets -->
-            <a class="btn-ghost" href="assets/cv-hanif.pdf" download>Unduh CV</a>
-          </div>
-
-          <hr class="divider"/>
-
-          <div class="socials">
-            <span class="follow">Follow me:</span>
-            <!-- Ganti tautan ke akun Anda -->
-            <a href="https://instagram.com/yourusername" target="_blank" rel="noopener" aria-label="Instagram">📷</a>
-            <a href="https://discord.com/users/yourid" target="_blank" rel="noopener" aria-label="Discord">💬</a>
-            <a href="https://wa.me/6287848707273" target="_blank" rel="noopener" aria-label="WhatsApp">📲</a>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <!-- ABOUUT -->
-    <section id="abouut" class="section about-section">
-      <div class="container narrow">
-        <h2 class="section-title">About</h2>
-        <div class="about-lines">
-          <p>1: Saya adalah lulusan SMK PANCA BHAKTI jurusan TJKT yang memiliki keterkaitan besar IT</p>
-          <p>2: Beerpangalaman dalam instalasi dan konfigurasi jaringan, serta peraangkat keras dan sistem</p>
-          <p>3: Terbiasa bekerja dengan disiplin dan teliti dalam menyelesaikan setiap project teknologi</p>
-        </div>
-      </div>
-    </section>
-
-    <!-- PROJECT -->
-    <section id="project" class="section project-section">
-      <div class="container">
-        <h2 class="section-title">Project</h2>
-
-        <div class="cards">
-          <!-- 1: E-COMMERCE -->
-          <article class="card">
-            <div class="card-body">
-              <div class="card-head">
-                <h3 class="tag-purple">E-COMMERCE Website</h3>
-              </div>
-              <p class="card-desc">
-                Project latihan pembuatan website toko online sederhana yang saya kerjakan saat masih di SMK. 
-                Dibuat menggunakan HTML, CSS, dan JavaScript dasar untuk memahami alur pembelian online. 
-                Masih dalam tahap pembelajaran dan terus saya kembangkan untuk meningkatkan skill coding.
-              </p>
-              <div class="card-actions">
-                <a href="#" class="link">Lihat Demo</a>
-                <a href="#" class="link">Source</a>
-              </div>
-            </div>
-          </article>
-
-          <!-- 2: PORTOFOLIO -->
-          <article class="card">
-            <div class="card-body">
-              <div class="card-head">
-                <h3 class="tag-purple">Portofolio Website</h3>
-              </div>
-              <p class="card-desc">
-                Website portofolio pribadi ini adalah project pertama saya setelah lulus untuk memperkenalkan diri 
-                kepada perusahaan. Saya belajar membuat tampilan responsif dan interaktif agar mudah diakses 
-                dari berbagai perangkat. Semoga bisa menunjukkan dedikasi saya di bidang IT.
-              </p>
-              <div class="card-actions">
-                <a href="#" class="link">Lihat Demo</a>
-                <a href="#" class="link">Source</a>
-              </div>
-            </div>
-          </article>
-
-          <!-- 3: BLOG -->
-          <article class="card">
-            <div class="card-body">
-              <div class="card-head">
-                <h3 class="tag-purple">BLOG WEBSITE</h3>
-              </div>
-              <p class="card-desc">
-                Project latihan website blog sederhana untuk berbagi catatan belajar IT dan teknologi. 
-                Saya membuat ini untuk melatih kemampuan layout dan manajemen konten. 
-                Kedepannya ingin saya gunakan untuk dokumentasi pembelajaran selama mencari pengalaman kerja.
-              </p>
-              <div class="card-actions">
-                <a href="#" class="link">Lihat Demo</a>
-                <a href="#" class="link">Source</a>
-              </div>
-            </div>
-          </article>
-        </div>
-      </div>
-    </section>
-
-    <!-- CONTACT -->
-    <section id="contact" class="section contact-section">
-      <div class="container">
-        <h2 class="section-title">Contact</h2>
-
-        <div class="contact-grid">
-          <!-- Tabel 1: Info pemilik -->
-          <div class="contact-card">
-            <h3 class="contact-title">Informasi</h3>
-            <ul class="contact-list">
-              <li>📧 <a href="mailto:faqihhan123@gmail.com">faqihhan123@gmail.com</a></li>
-              <li>📞 <a href="tel:+6287848707273">0878 4870 7273</a></li>
-              <li>📍 Banjarnegara, Madukara</li>
-            </ul>
-          </div>
-
-          <!-- Tabel 2: Send Message -->
-          <div class="contact-card">
-            <h3 class="contact-title">Send Message</h3>
-            <form id="contactForm" class="form">
-              <label for="name">Your name:</label>
-              <input type="text" id="name" name="name" placeholder="Nama Anda" required />
-
-              <label for="email">Your Email:</label>
-              <input type="email" id="email" name="email" placeholder="email@contoh.com" required />
-
-              <label for="message">Your message:</label>
-              <textarea id="message" name="message" rows="4" placeholder="Tulis pesan..." required></textarea>
-
-              <button type="submit" class="btn-primary">Kirim</button>
-              <p class="form-note">Form ini akan membuka aplikasi email Anda (mailto).</p>
-            </form>
-          </div>
-        </div>
-      </div>
-    </section>
-  </main>
-
-  <footer class="site-footer">
-    <div class="container">
-      <p>© <span id="year"></span> Hanif. Dibuat dengan ♥ dan semangat belajar.</p>
+  <!-- ========== STAGE 1-7: SPACE JOURNEY (7 PLANET) ========== -->
+  
+  <!-- Planet 1: MERKURIUS -->
+  <div id="journey-mercury" class="stage journey-stage">
+    <div class="space-bg mercury-bg"></div>
+    <div class="journey-stars"></div>
+    <div class="journey-meteors">
+      <div class="j-meteor"></div>
+      <div class="j-meteor"></div>
+      <div class="j-meteor"></div>
     </div>
-  </footer>
+    <div class="planet-display mercury-planet"></div>
+    <div class="profile-flex">
+      <img src="assets/profile-1.jpg" alt="Hanif at Mercury" class="profile-img" />
+      <p class="planet-label">MERKURIUS</p>
+    </div>
+  </div>
+
+  <!-- Planet 2: VENUS -->
+  <div id="journey-venus" class="stage journey-stage">
+    <div class="space-bg venus-bg"></div>
+    <div class="journey-stars"></div>
+    <div class="journey-meteors">
+      <div class="j-meteor"></div>
+      <div class="j-meteor"></div>
+      <div class="j-meteor"></div>
+    </div>
+    <div class="planet-display venus-planet"></div>
+    <div class="profile-flex">
+      <img src="assets/profile-2.jpg" alt="Hanif at Venus" class="profile-img" />
+      <p class="planet-label">VENUS</p>
+    </div>
+  </div>
+
+  <!-- Planet 3: BUMI -->
+  <div id="journey-earth" class="stage journey-stage">
+    <div class="space-bg earth-bg"></div>
+    <div class="journey-stars"></div>
+    <div class="journey-meteors">
+      <div class="j-meteor"></div>
+      <div class="j-meteor"></div>
+      <div class="j-meteor"></div>
+    </div>
+    <div class="planet-display earth-planet"></div>
+    <div class="profile-flex">
+      <img src="assets/profile-3.jpg" alt="Hanif at Earth" class="profile-img" />
+      <p class="planet-label">BUMI</p>
+    </div>
+  </div>
+
+  <!-- Planet 4: MARS -->
+  <div id="journey-mars" class="stage journey-stage">
+    <div class="space-bg mars-bg"></div>
+    <div class="journey-stars"></div>
+    <div class="journey-meteors">
+      <div class="j-meteor"></div>
+      <div class="j-meteor"></div>
+      <div class="j-meteor"></div>
+    </div>
+    <div class="planet-display mars-planet"></div>
+    <div class="profile-flex">
+      <img src="assets/profile-4.jpg" alt="Hanif at Mars" class="profile-img" />
+      <p class="planet-label">MARS</p>
+    </div>
+  </div>
+
+  <!-- Planet 5: JUPITER -->
+  <div id="journey-jupiter" class="stage journey-stage">
+    <div class="space-bg jupiter-bg"></div>
+    <div class="journey-stars"></div>
+    <div class="journey-meteors">
+      <div class="j-meteor"></div>
+      <div class="j-meteor"></div>
+      <div class="j-meteor"></div>
+    </div>
+    <div class="planet-display jupiter-planet"></div>
+    <div class="profile-flex">
+      <img src="assets/profile-5.jpg" alt="Hanif at Jupiter" class="profile-img" />
+      <p class="planet-label">JUPITER</p>
+    </div>
+  </div>
+
+  <!-- Planet 6: SATURNUS -->
+  <div id="journey-saturn" class="stage journey-stage">
+    <div class="space-bg saturn-bg"></div>
+    <div class="journey-stars"></div>
+    <div class="journey-meteors">
+      <div class="j-meteor"></div>
+      <div class="j-meteor"></div>
+      <div class="j-meteor"></div>
+    </div>
+    <div class="planet-display saturn-planet"></div>
+    <div class="profile-flex">
+      <img src="assets/profile-6.jpg" alt="Hanif at Saturn" class="profile-img" />
+      <p class="planet-label">SATURNUS</p>
+    </div>
+  </div>
+
+  <!-- Planet 7: URANUS -->
+  <div id="journey-uranus" class="stage journey-stage">
+    <div class="space-bg uranus-bg"></div>
+    <div class="journey-stars"></div>
+    <div class="journey-meteors">
+      <div class="j-meteor"></div>
+      <div class="j-meteor"></div>
+      <div class="j-meteor"></div>
+    </div>
+    <div class="planet-display uranus-planet"></div>
+    <div class="profile-flex">
+      <img src="assets/profile-7.jpg" alt="Hanif at Uranus" class="profile-img" />
+      <p class="planet-label">URANUS</p>
+    </div>
+  </div>
+
+  <!-- ========== STAGE 8: METEOR IMPACT + RETAKAN ========== -->
+  <div id="meteor-impact" class="stage">
+    <div class="space-bg impact-bg"></div>
+    
+    <!-- Meteor besar menghantam -->
+    <div class="big-meteor"></div>
+    
+    <!-- Retakan layar -->
+    <div class="screen-crack">
+      <svg class="crack-svg" viewBox="0 0 1920 1080" preserveAspectRatio="none">
+        <path class="crack-line crack-1" d="M960,0 L960,1080" stroke="#fff" stroke-width="4" fill="none" opacity="0"/>
+        <path class="crack-line crack-2" d="M960,540 L1920,200" stroke="#fff" stroke-width="3" fill="none" opacity="0"/>
+        <path class="crack-line crack-3" d="M960,540 L0,800" stroke="#fff" stroke-width="3" fill="none" opacity="0"/>
+        <path class="crack-line crack-4" d="M960,540 L1400,1080" stroke="#fff" stroke-width="2" fill="none" opacity="0"/>
+        <path class="crack-line crack-5" d="M960,540 L500,0" stroke="#fff" stroke-width="2" fill="none" opacity="0"/>
+      </svg>
+    </div>
+    
+    <!-- Kabut hitam -->
+    <div class="black-smoke"></div>
+    
+    <!-- Audio SFX -->
+    <audio id="crackSound" preload="auto">
+      <source src="assets/crack-sound.mp3" type="audio/mpeg">
+      <source src="assets/crack-sound.ogg" type="audio/ogg">
+    </audio>
+  </div>
+
+  <!-- ========== STAGE 9: WEBSITE UTAMA ========== -->
+  <div id="main-website" class="stage">
+    <header class="site-header">
+      <nav class="container nav">
+        <a href="#home" class="brand">HANIF</a>
+        <button class="nav-toggle" aria-label="Toggle navigation">&#9776;</button>
+        <ul class="nav-list">
+          <li><a href="#home" class="nav-link active">HOME</a></li>
+          <li><a href="#abouut" class="nav-link">ABOUUT</a></li>
+          <li><a href="#project" class="nav-link">PROJECT</a></li>
+          <li><a href="#contact" class="nav-link">CONTACT</a></li>
+        </ul>
+      </nav>
+    </header>
+
+    <main>
+      <!-- HOME -->
+      <section id="home" class="section home">
+        <div class="container home-grid">
+          <div class="home-photo">
+            <img src="assets/hanif.jpg" alt="Foto Profil Hanif" />
+          </div>
+
+          <div class="home-text">
+            <div class="for-work">For WORK</div>
+            <h1 class="title">Hi, I'm Hanif</h1>
+            <h2 class="subtitle">Fresh graduate TJKT</h2>
+            <p class="lead">
+              Halo, saya Hanif.<br/>
+              Lulusan SMK jurusan TJKT, dengan minat pada jaringan komputer dan teknologi informasi.<br/>
+              Saya siap belajar, berkembang, dan berkontribusi di dunia IT.
+            </p>
+            <p class="location">📍 Lokasi Banjarnegara, Madukara</p>
+            <div class="cta-row">
+              <a class="btn-ghost" href="assets/cv-hanif.pdf" download>Unduh CV</a>
+            </div>
+            <hr class="divider"/>
+            <div class="socials">
+              <span class="follow">Follow me:</span>
+              <a href="https://instagram.com/yourusername" target="_blank" rel="noopener noreferrer" aria-label="Instagram">📷</a>
+              <a href="https://discord.com/users/yourid" target="_blank" rel="noopener noreferrer" aria-label="Discord">💬</a>
+              <a href="https://wa.me/6287848707273" target="_blank" rel="noopener noreferrer" aria-label="WhatsApp">📲</a>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- ABOUUT -->
+      <section id="abouut" class="section about-section">
+        <div class="container narrow">
+          <h2 class="section-title">About</h2>
+          <div class="about-lines">
+            <p>1: Saya adalah lulusan SMK PANCA BHAKTI jurusan TJKT yang memiliki keterkaitan besar IT</p>
+            <p>2: Berpengalaman dalam instalasi dan konfigurasi jaringan, serta perangkat keras dan sistem</p>
+            <p>3: Terbiasa bekerja dengan disiplin dan teliti dalam menyelesaikan setiap project teknologi</p>
+          </div>
+        </div>
+      </section>
+
+      <!-- PROJECT -->
+      <section id="project" class="section project-section">
+        <div class="container">
+          <h2 class="section-title">Project</h2>
+          <div class="cards">
+            <article class="card">
+              <div class="card-body">
+                <div class="card-head">
+                  <h3 class="tag-purple">E-COMMERCE Website</h3>
+                </div>
+                <p class="card-desc">
+                  Project latihan pembuatan website toko online sederhana yang saya kerjakan saat masih di SMK. 
+                  Dibuat menggunakan HTML, CSS, dan JavaScript dasar untuk memahami alur pembelian online. 
+                  Masih dalam tahap pembelajaran dan terus saya kembangkan untuk meningkatkan skill coding.
+                </p>
+                <div class="card-actions">
+                  <a href="#" class="link">Lihat Demo</a>
+                  <a href="#" class="link">Source</a>
+                </div>
+              </div>
+            </article>
+
+            <article class="card">
+              <div class="card-body">
+                <div class="card-head">
+                  <h3 class="tag-purple">Portofolio Website</h3>
+                </div>
+                <p class="card-desc">
+                  Website portofolio pribadi ini adalah project pertama saya setelah lulus untuk memperkenalkan diri 
+                  kepada perusahaan. Saya belajar membuat tampilan responsif dan interaktif agar mudah diakses 
+                  dari berbagai perangkat. Semoga bisa menunjukkan dedikasi saya di bidang IT.
+                </p>
+                <div class="card-actions">
+                  <a href="#" class="link">Lihat Demo</a>
+                  <a href="#" class="link">Source</a>
+                </div>
+              </div>
+            </article>
+
+            <article class="card">
+              <div class="card-body">
+                <div class="card-head">
+                  <h3 class="tag-purple">BLOG WEBSITE</h3>
+                </div>
+                <p class="card-desc">
+                  Project latihan website blog sederhana untuk berbagi catatan belajar IT dan teknologi. 
+                  Saya membuat ini untuk melatih kemampuan layout dan manajemen konten. 
+                  Kedepannya ingin saya gunakan untuk dokumentasi pembelajaran selama mencari pengalaman kerja.
+                </p>
+                <div class="card-actions">
+                  <a href="#" class="link">Lihat Demo</a>
+                  <a href="#" class="link">Source</a>
+                </div>
+              </div>
+            </article>
+          </div>
+        </div>
+      </section>
+
+      <!-- CONTACT -->
+      <section id="contact" class="section contact-section">
+        <div class="container">
+          <h2 class="section-title">Contact</h2>
+          <div class="contact-grid">
+            <div class="contact-card">
+              <h3 class="contact-title">Informasi</h3>
+              <ul class="contact-list">
+                <li>📧 <a href="mailto:faqihhan123@gmail.com">faqihhan123@gmail.com</a></li>
+                <li>📞 <a href="tel:+6287848707273">0878 4870 7273</a></li>
+                <li>📍 Banjarnegara, Madukara</li>
+              </ul>
+            </div>
+
+            <div class="contact-card">
+              <h3 class="contact-title">Send Message</h3>
+              <form id="contactForm" class="form">
+                <label for="name">Your name:</label>
+                <input type="text" id="name" name="name" placeholder="Nama Anda" required />
+                
+                <label for="email">Your Email:</label>
+                <input type="email" id="email" name="email" placeholder="email@contoh.com" required />
+                
+                <label for="message">Your message:</label>
+                <textarea id="message" name="message" rows="4" placeholder="Tulis pesan..." required></textarea>
+                
+                <button type="submit" class="btn-primary">Kirim</button>
+                <p class="form-note">Form ini akan membuka aplikasi email Anda (mailto).</p>
+              </form>
+            </div>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <footer class="site-footer">
+      <div class="container">
+        <p>&copy; <span id="year"></span> Hanif. Dibuat dengan ♥ dan semangat belajar.</p>
+      </div>
+    </footer>
+  </div>
 
 </body>
 </html>
