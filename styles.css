@@ -14,97 +14,92 @@
   --card-hover: #1a1f27;
 }
 
-*{box-sizing:border-box}
+*{
+  box-sizing:border-box;
+  margin:0;
+  padding:0;
+}
+
 html{
   scroll-behavior:smooth;
   scroll-padding-top: 80px;
 }
+
 body{
-  margin:0;
-  font-family: "Poppins", system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
+  font-family: "Poppins", sans-serif;
   color:var(--txt);
-  background:var(--bg);
+  background:#000;
   line-height:1.7;
   overflow-x: hidden;
   position: relative;
 }
 
-/* Ambient glow effect di background */
-body::before{
-  content:"";
+/* ========== STAGE SYSTEM ========== */
+.stage{
   position:fixed;
-  top:-50%;
-  left:-10%;
-  width:60%;
-  height:60%;
-  background: radial-gradient(circle, rgba(139,92,246,0.08) 0%, transparent 70%);
-  pointer-events:none;
-  z-index:0;
-}
-body::after{
-  content:"";
-  position:fixed;
-  bottom:-30%;
-  right:-10%;
-  width:50%;
-  height:50%;
-  background: radial-gradient(circle, rgba(0,123,255,0.06) 0%, transparent 70%);
-  pointer-events:none;
-  z-index:0;
+  inset:0;
+  z-index:10000;
+  display:none;
+  overflow:hidden;
 }
 
-/* Container helpers */
-.container{width:min(1100px, 92%); margin-inline:auto; position:relative; z-index:1;}
-.narrow{width:min(800px, 92%); margin-inline:auto; position:relative; z-index:1;}
+.stage.active{
+  display:block;
+}
 
-/* ========== INTRO OVERLAY: Galaksi Biru + Meteor + Planet ========== */
+/* ========== INTRO AWAL (STAGE 0) ========== */
 #intro{
-  position:fixed; inset:0; z-index:9999;
-  display:grid; place-items:center;
+  display:grid;
+  place-items:center;
   background:
     radial-gradient(1200px 600px at 50% 100%, rgba(0,123,255,0.22), transparent 60%),
     radial-gradient(800px 400px at 20% 20%, rgba(0,170,255,0.20), transparent 50%),
     radial-gradient(900px 500px at 80% 30%, rgba(0,90,255,0.22), transparent 55%),
     linear-gradient(180deg, var(--blue-2), var(--blue-1) 55%, var(--blue-deep));
-  overflow:hidden;
-  transition:opacity .8s ease, visibility 0s linear .8s;
 }
 
-/* Abstrak Hitam di sekitar nickname */
 .intro-abstract{
   position:absolute;
-  top:50%; left:50%;
+  top:50%;
+  left:50%;
   transform:translate(-50%, -50%);
-  width:800px; height:500px;
-  background: 
-    radial-gradient(ellipse, rgba(0,0,0,0.5) 0%, rgba(0,0,0,0.3) 40%, transparent 70%);
+  width:800px;
+  height:500px;
+  background: radial-gradient(ellipse, rgba(0,0,0,0.5) 0%, rgba(0,0,0,0.3) 40%, transparent 70%);
   filter: blur(60px);
   animation: pulseAbstract 4s ease-in-out infinite alternate;
 }
+
 @keyframes pulseAbstract{
   0%{ transform: translate(-50%, -50%) scale(1); opacity:0.6; }
   100%{ transform: translate(-50%, -50%) scale(1.15); opacity:0.8; }
 }
 
-/* Bintang (stars) - lebih banyak dan animated */
-#intro::before, #intro::after{
+#intro::before,
+#intro::after{
   content:"";
-  position:absolute; inset:-50% -50%;
+  position:absolute;
+  inset:-50% -50%;
   background-image:
     radial-gradient(2px 2px at 15% 25%, rgba(255,255,255,.9) 50%, transparent 55%),
     radial-gradient(1.5px 1.5px at 65% 55%, rgba(180,220,255,1) 50%, transparent 55%),
     radial-gradient(1.8px 1.8px at 30% 75%, rgba(255,255,255,.85) 50%, transparent 55%),
     radial-gradient(1.3px 1.3px at 50% 15%, rgba(200,220,255,.95) 50%, transparent 55%),
-    radial-gradient(2.2px 2.2px at 85% 40%, rgba(255,255,255,.8) 50%, transparent 55%),
-    radial-gradient(1.6px 1.6px at 40% 90%, rgba(180,220,255,.9) 50%, transparent 55%);
+    radial-gradient(2.2px 2.2px at 85% 40%, rgba(255,255,255,.8) 50%, transparent 55%);
   background-repeat:repeat;
   animation: starsMove 12s linear infinite;
   opacity:.8;
 }
-#intro::after{ animation-duration: 20s; opacity:.6; }
-@keyframes starsMove{ to{ transform: translateY(150px); } }
 
-/* Meteor - animasi jatuh diagonal */
+#intro::after{
+  animation-duration: 20s;
+  opacity:.6;
+}
+
+@keyframes starsMove{
+  to{ transform: translateY(150px); }
+}
+
 .meteor{
   position:absolute;
   width:3px;
@@ -115,6 +110,7 @@ body::after{
   animation: meteorFall 2.5s ease-in infinite;
   opacity:0;
 }
+
 .meteor-1{ top:10%; left:20%; animation-delay:0s; }
 .meteor-2{ top:30%; left:70%; animation-delay:1.2s; animation-duration:3s; }
 .meteor-3{ top:50%; left:40%; animation-delay:2s; animation-duration:2.8s; }
@@ -126,25 +122,30 @@ body::after{
   100%{ transform: translateY(400px) translateX(200px) rotate(45deg); opacity:0; }
 }
 
-/* Planet - elemen bulat dengan glow */
 .planet{
   position:absolute;
   border-radius:50%;
   opacity:0.7;
   animation: planetFloat 8s ease-in-out infinite alternate;
 }
+
 .planet-1{
-  width:120px; height:120px;
-  top:15%; right:10%;
+  width:120px;
+  height:120px;
+  top:15%;
+  right:10%;
   background: radial-gradient(circle at 30% 30%, #4a90e2, #1e3a5f);
   box-shadow: 
     0 0 40px rgba(74,144,226,0.6),
     inset -10px -10px 30px rgba(0,0,0,0.5);
   animation-duration:10s;
 }
+
 .planet-2{
-  width:80px; height:80px;
-  bottom:20%; left:8%;
+  width:80px;
+  height:80px;
+  bottom:20%;
+  left:8%;
   background: radial-gradient(circle at 35% 35%, #9b6bff, #4a2b7a);
   box-shadow: 
     0 0 30px rgba(155,107,255,0.5),
@@ -152,20 +153,19 @@ body::after{
   animation-duration:12s;
   animation-delay:1s;
 }
+
 @keyframes planetFloat{
   0%{ transform: translateY(0); }
   100%{ transform: translateY(-30px); }
 }
 
-/* Teks neon dan tombol masuk */
-.intro-inner{ 
-  text-align:center; 
+.intro-inner{
+  text-align:center;
   transform: translateY(-20px);
   position:relative;
   z-index:10;
 }
 
-/* Baris 1: MY PROFILE */
 .neon{
   color: var(--neon);
   font-size: clamp(38px, 7vw, 72px);
@@ -179,18 +179,16 @@ body::after{
   margin:0 0 .4rem;
 }
 
-/* Baris 2: Desaigned by HANIF */
 .neon-sub{
   color: #bfeeff;
   font-size: clamp(16px, 3vw, 24px);
   letter-spacing: .15em;
   margin:0 0 1.5rem;
   text-shadow: 
-    0 0 8px rgba(191,238,255,0.8), 
+    0 0 8px rgba(191,238,255,0.8),
     0 0 20px rgba(0,170,255,0.5);
 }
 
-/* Baris 3: TOMBOL MASUK */
 .btn-masuk{
   background: #000000;
   color: var(--neon);
@@ -218,8 +216,10 @@ body::after{
 .btn-masuk::before{
   content:"";
   position:absolute;
-  top:50%; left:50%;
-  width:0; height:0;
+  top:50%;
+  left:50%;
+  width:0;
+  height:0;
   background: rgba(0,231,255,0.3);
   border-radius:50%;
   transform:translate(-50%, -50%);
@@ -244,75 +244,484 @@ body::after{
   transform: translateY(-1px) scale(1.02);
 }
 
-/* Animasi drop untuk 3 elemen */
-.drop{ animation: dropIn 1.2s cubic-bezier(.2,.7,.2,1) both; }
-.drop2{ animation: dropIn 1.4s .15s cubic-bezier(.2,.7,.2,1) both; }
-.drop3{ animation: dropIn 1.6s .3s cubic-bezier(.2,.7,.2,1) both; }
+.drop{
+  animation: dropIn 1.2s cubic-bezier(.2,.7,.2,1) both;
+}
+
+.drop2{
+  animation: dropIn 1.4s .15s cubic-bezier(.2,.7,.2,1) both;
+}
+
+.drop3{
+  animation: dropIn 1.6s .3s cubic-bezier(.2,.7,.2,1) both;
+}
 
 @keyframes dropIn{
   0%{ opacity:0; transform:translateY(-50px) scale(0.9); }
   100%{ opacity:1; transform:translateY(0) scale(1); }
 }
 
-/* Reveal main after intro */
-body.page-ready #intro{ opacity:0; visibility:hidden; pointer-events:none; }
-main, .site-header, .site-footer{ 
-  opacity:0; 
-  transform: translateY(12px); 
-  transition: .6s ease .4s; 
+/* ========== SPACE JOURNEY (STAGE 1-7) ========== */
+.journey-stage{
+  display:grid;
+  place-items:center;
+  background:#000;
 }
-body.page-ready main,
-body.page-ready .site-header,
-body.page-ready .site-footer { opacity:1; transform:none; }
 
-/* ========== Header / Nav ========== */
+.space-bg{
+  position:absolute;
+  inset:0;
+  animation: zoomBg 3s ease-out both;
+}
+
+@keyframes zoomBg{
+  0%{ transform:scale(1.5); opacity:0; }
+  100%{ transform:scale(1); opacity:1; }
+}
+
+/* Background setiap planet */
+.mercury-bg{ background: radial-gradient(circle at 30% 40%, #6b5b4e, #2a2319, #000); }
+.venus-bg{ background: radial-gradient(circle at 40% 30%, #e8c87f, #c89640, #000); }
+.earth-bg{ background: radial-gradient(circle at 35% 35%, #4a9eff, #1e5f8c, #000); }
+.mars-bg{ background: radial-gradient(circle at 45% 40%, #d85030, #8b3020, #000); }
+.jupiter-bg{ background: radial-gradient(circle at 30% 50%, #d4a574, #b8834a, #000); }
+.saturn-bg{ background: radial-gradient(circle at 40% 35%, #f4e6c3, #c4a672, #000); }
+.uranus-bg{ background: radial-gradient(circle at 35% 45%, #4fd4e8, #2a7a8c, #000); }
+
+.journey-stars{
+  position:absolute;
+  inset:0;
+  background-image:
+    radial-gradient(2px 2px at 10% 20%, #fff 50%, transparent 55%),
+    radial-gradient(1.5px 1.5px at 80% 30%, rgba(180,220,255,.9) 50%, transparent 55%),
+    radial-gradient(1.8px 1.8px at 25% 70%, #fff 50%, transparent 55%),
+    radial-gradient(1.3px 1.3px at 60% 15%, rgba(200,220,255,.95) 50%, transparent 55%),
+    radial-gradient(2.2px 2.2px at 90% 85%, #fff 50%, transparent 55%);
+  background-repeat:repeat;
+  animation: journeyStars 8s linear infinite;
+  opacity:.7;
+}
+
+@keyframes journeyStars{
+  to{ transform: translateY(100px) translateX(-50px); }
+}
+
+.journey-meteors{
+  position:absolute;
+  inset:0;
+  pointer-events:none;
+}
+
+.j-meteor{
+  position:absolute;
+  width:2px;
+  height:60px;
+  background: linear-gradient(to bottom, transparent, rgba(255,255,255,0.9), rgba(0,231,255,0.6));
+  animation: jMeteorFly 2s ease-in infinite;
+  opacity:0;
+}
+
+.j-meteor:nth-child(1){ top:15%; left:10%; animation-delay:0.3s; }
+.j-meteor:nth-child(2){ top:60%; left:75%; animation-delay:1.5s; animation-duration:2.5s; }
+.j-meteor:nth-child(3){ top:40%; left:50%; animation-delay:2.3s; animation-duration:1.8s; }
+
+@keyframes jMeteorFly{
+  0%{ transform: translateY(0) translateX(0) rotate(50deg); opacity:0; }
+  10%{ opacity:1; }
+  90%{ opacity:0.6; }
+  100%{ transform: translateY(300px) translateX(150px) rotate(50deg); opacity:0; }
+}
+
+.planet-display{
+  position:absolute;
+  border-radius:50%;
+  animation: rotatePlanet 20s linear infinite, pulsePlanet 4s ease-in-out infinite alternate;
+}
+
+@keyframes rotatePlanet{
+  to{ transform: rotate(360deg); }
+}
+
+@keyframes pulsePlanet{
+  0%{ opacity:0.7; }
+  100%{ opacity:1; }
+}
+
+.mercury-planet{
+  width:180px;
+  height:180px;
+  top:15%;
+  right:12%;
+  background: radial-gradient(circle at 35% 30%, #9b8b7e, #4a3b2e);
+  box-shadow: 
+    0 0 60px rgba(155,139,126,0.7),
+    inset -15px -15px 40px rgba(0,0,0,0.6);
+}
+
+.venus-planet{
+  width:220px;
+  height:220px;
+  bottom:18%;
+  left:10%;
+  background: radial-gradient(circle at 40% 35%, #f4d89f, #d89640);
+  box-shadow: 
+    0 0 70px rgba(244,216,159,0.7),
+    inset -18px -18px 45px rgba(0,0,0,0.5);
+}
+
+.earth-planet{
+  width:240px;
+  height:240px;
+  top:20%;
+  left:15%;
+  background: radial-gradient(circle at 35% 35%, #6ab3ff, #2e6b9e);
+  box-shadow: 
+    0 0 80px rgba(106,179,255,0.8),
+    inset -20px -20px 50px rgba(0,0,0,0.5);
+}
+
+.mars-planet{
+  width:200px;
+  height:200px;
+  bottom:20%;
+  right:15%;
+  background: radial-gradient(circle at 38% 32%, #f47050, #a84030);
+  box-shadow: 
+    0 0 70px rgba(244,112,80,0.7),
+    inset -16px -16px 42px rgba(0,0,0,0.6);
+}
+
+.jupiter-planet{
+  width:320px;
+  height:320px;
+  top:10%;
+  right:8%;
+  background: 
+    radial-gradient(ellipse at 40% 50%, #f4d8a4, #d8a474),
+    repeating-linear-gradient(90deg, transparent 0, rgba(180,140,100,0.3) 20px, transparent 40px);
+  box-shadow: 
+    0 0 100px rgba(244,216,164,0.8),
+    inset -25px -25px 60px rgba(0,0,0,0.5);
+}
+
+.saturn-planet{
+  width:280px;
+  height:280px;
+  bottom:15%;
+  left:12%;
+  background: radial-gradient(circle at 38% 35%, #ffe8b3, #d4b682);
+  box-shadow: 
+    0 0 90px rgba(255,232,179,0.8),
+    inset -22px -22px 55px rgba(0,0,0,0.5);
+  position:relative;
+}
+
+.saturn-planet::after{
+  content:"";
+  position:absolute;
+  top:50%;
+  left:50%;
+  transform:translate(-50%, -50%) rotateX(75deg);
+  width:450px;
+  height:100px;
+  border-radius:50%;
+  border:20px solid rgba(255,232,179,0.4);
+  border-top-color:rgba(255,232,179,0.6);
+  border-bottom-color:rgba(255,232,179,0.2);
+}
+
+.uranus-planet{
+  width:260px;
+  height:260px;
+  top:15%;
+  left:15%;
+  background: radial-gradient(circle at 36% 38%, #7fe4f4, #3a9aac);
+  box-shadow: 
+    0 0 85px rgba(127,228,244,0.8),
+    inset -20px -20px 52px rgba(0,0,0,0.5);
+}
+
+.profile-flex{
+  position:relative;
+  z-index:10;
+  text-align:center;
+  animation: profileEnter 1.5s cubic-bezier(.2,.8,.2,1) .5s both;
+}
+
+@keyframes profileEnter{
+  0%{ opacity:0; transform:translateY(80px) scale(0.7) rotateX(-30deg); }
+  100%{ opacity:1; transform:translateY(0) scale(1) rotateX(0); }
+}
+
+.profile-img{
+  width:clamp(200px, 30vw, 350px);
+  height:clamp(200px, 30vw, 350px);
+  object-fit:cover;
+  border-radius:50%;
+  border:5px solid rgba(255,255,255,0.4);
+  box-shadow: 
+    0 0 40px rgba(255,255,255,0.6),
+    0 0 80px rgba(0,231,255,0.4),
+    inset 0 0 30px rgba(0,0,0,0.3);
+  animation: profileGlow 3s ease-in-out infinite alternate;
+}
+
+@keyframes profileGlow{
+  0%{
+    box-shadow: 
+      0 0 40px rgba(255,255,255,0.6),
+      0 0 80px rgba(0,231,255,0.4),
+      inset 0 0 30px rgba(0,0,0,0.3);
+  }
+  100%{
+    box-shadow: 
+      0 0 60px rgba(255,255,255,0.8),
+      0 0 120px rgba(0,231,255,0.6),
+      inset 0 0 30px rgba(0,0,0,0.3);
+  }
+}
+
+.planet-label{
+  margin-top:1.5rem;
+  font-size: clamp(24px, 4vw, 42px);
+  font-weight:700;
+  letter-spacing:.2em;
+  color:#fff;
+  text-shadow: 
+    0 0 10px rgba(255,255,255,0.9),
+    0 0 30px rgba(0,231,255,0.7),
+    0 2px 20px rgba(0,0,0,0.8);
+  animation: labelPulse 2s ease-in-out infinite alternate;
+}
+
+@keyframes labelPulse{
+  0%{ opacity:0.8; }
+  100%{ opacity:1; }
+}
+
+/* ========== METEOR IMPACT (STAGE 8) ========== */
+#meteor-impact{
+  background:#000;
+}
+
+.impact-bg{
+  position:absolute;
+  inset:0;
+  background: radial-gradient(circle at 50% 50%, #1a1a2e, #000);
+}
+
+.big-meteor{
+  position:absolute;
+  width:200px;
+  height:200px;
+  border-radius:50%;
+  background: radial-gradient(circle at 35% 30%, #ff6b3d, #8b3020);
+  box-shadow: 
+    0 0 100px rgba(255,107,61,0.9),
+    0 0 200px rgba(255,107,61,0.6),
+    inset -20px -20px 50px rgba(0,0,0,0.7);
+  top:-250px;
+  left:50%;
+  transform:translateX(-50%);
+  animation: meteorCrash 1.5s cubic-bezier(.5,0,.5,1) forwards;
+}
+
+@keyframes meteorCrash{
+  0%{
+    top:-250px;
+    transform:translateX(-50%) rotate(0deg) scale(0.5);
+    opacity:0;
+  }
+  60%{
+    top:50%;
+    transform:translateX(-50%) translateY(-50%) rotate(180deg) scale(1.2);
+    opacity:1;
+  }
+  100%{
+    top:50%;
+    transform:translateX(-50%) translateY(-50%) rotate(360deg) scale(1.5);
+    opacity:0.3;
+  }
+}
+
+.screen-crack{
+  position:absolute;
+  inset:0;
+  pointer-events:none;
+}
+
+.crack-svg{
+  width:100%;
+  height:100%;
+}
+
+.crack-line{
+  stroke-dasharray:2000;
+  stroke-dashoffset:2000;
+  filter: drop-shadow(0 0 8px rgba(255,255,255,0.8));
+}
+
+.crack-1{
+  animation: drawCrack 0.3s ease-out 1.2s forwards;
+}
+
+.crack-2{
+  animation: drawCrack 0.25s ease-out 1.35s forwards;
+}
+
+.crack-3{
+  animation: drawCrack 0.25s ease-out 1.4s forwards;
+}
+
+.crack-4{
+  animation: drawCrack 0.2s ease-out 1.5s forwards;
+}
+
+.crack-5{
+  animation: drawCrack 0.2s ease-out 1.55s forwards;
+}
+
+@keyframes drawCrack{
+  to{
+    stroke-dashoffset:0;
+    opacity:0.9;
+  }
+}
+
+.black-smoke{
+  position:absolute;
+  inset:0;
+  background: radial-gradient(circle at 50% 50%, rgba(0,0,0,0) 0%, rgba(0,0,0,1) 70%);
+  opacity:0;
+  animation: smokeRise 1.5s ease-out 1.7s forwards;
+}
+
+@keyframes smokeRise{
+  0%{ opacity:0; transform:scale(0.5); }
+  100%{ opacity:1; transform:scale(1.5); }
+}
+
+/* ========== MAIN WEBSITE (STAGE 9) ========== */
+#main-website{
+  background:var(--bg);
+  overflow-y:auto;
+  opacity:0;
+}
+
+#main-website.active{
+  animation: fadeInSite 1s ease-out forwards;
+}
+
+@keyframes fadeInSite{
+  to{ opacity:1; }
+}
+
+body::before{
+  content:"";
+  position:fixed;
+  top:-50%;
+  left:-10%;
+  width:60%;
+  height:60%;
+  background: radial-gradient(circle, rgba(139,92,246,0.08) 0%, transparent 70%);
+  pointer-events:none;
+  z-index:0;
+}
+
+body::after{
+  content:"";
+  position:fixed;
+  bottom:-30%;
+  right:-10%;
+  width:50%;
+  height:50%;
+  background: radial-gradient(circle, rgba(0,123,255,0.06) 0%, transparent 70%);
+  pointer-events:none;
+  z-index:0;
+}
+
+.container{
+  width:min(1100px, 92%);
+  margin-inline:auto;
+  position:relative;
+  z-index:1;
+}
+
+.narrow{
+  width:min(800px, 92%);
+  margin-inline:auto;
+  position:relative;
+  z-index:1;
+}
+
 .site-header{
-  position:sticky; top:0; z-index:100;
+  position:sticky;
+  top:0;
+  z-index:100;
   background:rgba(16,19,25,0.95);
   backdrop-filter: blur(10px);
   border-bottom:1px solid var(--line);
   box-shadow: 0 4px 12px rgba(0,0,0,.3);
 }
+
 .nav{
-  display:flex; align-items:center; justify-content:space-between;
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
   padding:.9rem 0;
 }
+
 .brand{
-  font-weight:700; letter-spacing:.08em; color:var(--txt); text-decoration:none;
+  font-weight:700;
+  letter-spacing:.08em;
+  color:var(--txt);
+  text-decoration:none;
   font-size:21px;
   text-shadow: 0 0 8px rgba(139,92,246,0.5);
 }
+
 .nav-toggle{
-  display:none; background:none; border:none; font-size:28px; line-height:1; cursor:pointer;
+  display:none;
+  background:none;
+  border:none;
+  font-size:28px;
+  line-height:1;
+  cursor:pointer;
   color:var(--txt);
 }
+
 .nav-list{
-  list-style:none; display:flex; gap:1rem; margin:0; padding:0;
-}
-.nav-link{
-  display:inline-block; padding:.6rem .8rem; border-radius:8px;
-  color:var(--txt-soft); text-decoration:none; font-weight:600;
-  transition: all .2s ease;
-}
-.nav-link.active{ 
-  background:rgba(139,92,246,0.15); 
-  color:var(--purple); 
-  box-shadow: 0 0 12px rgba(139,92,246,0.3);
-}
-.nav-link:hover{ 
-  background:rgba(139,92,246,0.1); 
-  color:var(--purple); 
+  list-style:none;
+  display:flex;
+  gap:1rem;
 }
 
-/* ========== Sections ========== */
-.section{ 
+.nav-link{
+  display:inline-block;
+  padding:.6rem .8rem;
+  border-radius:8px;
+  color:var(--txt-soft);
+  text-decoration:none;
+  font-weight:600;
+  transition: all .2s ease;
+}
+
+.nav-link.active{
+  background:rgba(139,92,246,0.15);
+  color:var(--purple);
+  box-shadow: 0 0 12px rgba(139,92,246,0.3);
+}
+
+.nav-link:hover{
+  background:rgba(139,92,246,0.1);
+  color:var(--purple);
+}
+
+.section{
   padding: clamp(70px, 9vw, 110px) 0;
   min-height: 50vh;
-  display: block;
-  visibility: visible;
-  opacity: 1;
-  position:relative;
 }
+
 .section-title{
   font-size: clamp(26px, 4.5vw, 40px);
   margin:0 0 2rem;
@@ -321,21 +730,20 @@ body.page-ready .site-footer { opacity:1; transform:none; }
   text-shadow: 0 2px 8px rgba(0,0,0,0.3);
 }
 
-/* ========== HOME ========== */
 .home-grid{
-  display:grid; 
-  grid-template-columns: 380px 1fr; 
-  gap:50px; 
+  display:grid;
+  grid-template-columns: 380px 1fr;
+  gap:50px;
   align-items:center;
 }
 
-/* FOTO PROFIL di kiri */
 .home-photo{
-  display:flex; 
-  justify-content:center; 
+  display:flex;
+  justify-content:center;
   align-items:center;
   position:relative;
 }
+
 .home-photo::before{
   content:"";
   position:absolute;
@@ -345,14 +753,16 @@ body.page-ready .site-footer { opacity:1; transform:none; }
   z-index:-1;
   animation: photoGlow 3s ease-in-out infinite alternate;
 }
+
 @keyframes photoGlow{
   0%{ opacity:0.5; }
   100%{ opacity:0.9; }
 }
+
 .home-photo img{
-  width:100%; 
-  max-width:340px; 
-  aspect-ratio: 4/5; 
+  width:100%;
+  max-width:340px;
+  aspect-ratio: 4/5;
   object-fit:cover;
   border-radius:20px;
   box-shadow: 
@@ -361,8 +771,9 @@ body.page-ready .site-footer { opacity:1; transform:none; }
   border:2px solid rgba(139,92,246,0.3);
 }
 
-/* Teks di kanan */
-.home-text{ max-width: 680px; }
+.home-text{
+  max-width: 680px;
+}
 
 .for-work{
   display:inline-block;
@@ -378,71 +789,94 @@ body.page-ready .site-footer { opacity:1; transform:none; }
   box-shadow: 0 0 12px rgba(139,92,246,0.2);
 }
 
-.title{ 
-  font-size: clamp(34px, 6.5vw, 60px); 
-  line-height:1.15; 
-  margin:.5rem 0; 
+.title{
+  font-size: clamp(34px, 6.5vw, 60px);
+  line-height:1.15;
+  margin:.5rem 0;
   color:var(--txt);
   text-shadow: 0 2px 12px rgba(0,0,0,0.4);
 }
-.subtitle{ 
-  font-size: clamp(19px, 3.5vw, 30px); 
-  font-weight:600; 
-  margin:.2rem 0 1.2rem; 
+
+.subtitle{
+  font-size: clamp(19px, 3.5vw, 30px);
+  font-weight:600;
+  margin:.2rem 0 1.2rem;
   color:var(--purple);
   text-shadow: 0 0 10px rgba(139,92,246,0.5);
 }
-.lead{ 
-  color:var(--txt-soft); 
-  font-size: clamp(14px, 2.5vw, 16px); 
+
+.lead{
+  color:var(--txt-soft);
+  font-size: clamp(14px, 2.5vw, 16px);
   line-height:1.8;
 }
-.location{ 
-  font-size: 14px; 
-  color:var(--muted); 
-  margin:.8rem 0 1.4rem; 
+
+.location{
+  font-size: 14px;
+  color:var(--muted);
+  margin:.8rem 0 1.4rem;
 }
 
-.cta-row{ display:flex; gap:.7rem; align-items:center; }
+.cta-row{
+  display:flex;
+  gap:.7rem;
+  align-items:center;
+}
+
 .btn-ghost{
-  border:1.8px solid rgba(139,92,246,0.5); 
-  color:var(--txt-soft); 
+  border:1.8px solid rgba(139,92,246,0.5);
+  color:var(--txt-soft);
   background:rgba(139,92,246,0.08);
   text-decoration:none;
-  padding:.75rem 1.1rem; 
-  border-radius:12px; 
-  font-weight:600; 
+  padding:.75rem 1.1rem;
+  border-radius:12px;
+  font-weight:600;
   font-size: clamp(15px, 2.8vw, 18px);
   transition: .25s ease;
   box-shadow: 0 0 15px rgba(139,92,246,0.2);
 }
-.btn-ghost:hover{ 
-  background:rgba(139,92,246,0.2); 
+
+.btn-ghost:hover{
+  background:rgba(139,92,246,0.2);
   border-color:var(--purple);
   box-shadow: 0 0 20px rgba(139,92,246,0.4);
   transform:translateY(-2px);
 }
 
 .divider{
-  border:none; 
-  height:1px; 
-  background: linear-gradient(90deg, transparent, var(--line), transparent); 
+  border:none;
+  height:1px;
+  background: linear-gradient(90deg, transparent, var(--line), transparent);
   margin: 1.6rem 0;
 }
-.socials{ display:flex; align-items:center; gap:.8rem; }
-.socials .follow{ margin-right:.3rem; color:var(--txt-soft); font-weight:600; }
+
+.socials{
+  display:flex;
+  align-items:center;
+  gap:.8rem;
+}
+
+.socials .follow{
+  margin-right:.3rem;
+  color:var(--txt-soft);
+  font-weight:600;
+}
+
 .socials a{
-  font-size:24px; 
-  text-decoration:none; 
+  font-size:24px;
+  text-decoration:none;
   filter: grayscale(0);
   transition: transform .2s ease;
 }
-.socials a:hover{ transform: translateY(-3px) scale(1.1); }
 
-/* ========== ABOUT ========== */
+.socials a:hover{
+  transform: translateY(-3px) scale(1.1);
+}
+
 .about-section{
   background:var(--bg-light);
 }
+
 .about-lines p{
   margin:.9rem 0;
   font-size: clamp(15px, 2.7vw, 18px);
@@ -450,23 +884,25 @@ body.page-ready .site-footer { opacity:1; transform:none; }
   line-height:1.9;
 }
 
-/* ========== PROJECT ========== */
 .project-section{
   background:var(--bg);
 }
+
 .cards{
-  display:grid; 
-  grid-template-columns: repeat(3, 1fr); 
+  display:grid;
+  grid-template-columns: repeat(3, 1fr);
   gap:26px;
 }
+
 .card{
-  background:var(--card-bg); 
-  border:1px solid var(--line); 
-  border-radius:16px; 
+  background:var(--card-bg);
+  border:1px solid var(--line);
+  border-radius:16px;
   overflow:hidden;
   box-shadow: 0 8px 24px rgba(0,0,0,.4);
   transition: transform .3s ease, box-shadow .3s ease, background .3s ease;
 }
+
 .card:hover{
   transform: translateY(-6px);
   box-shadow: 
@@ -478,176 +914,232 @@ body.page-ready .site-footer { opacity:1; transform:none; }
 .card-body{
   padding:1.5rem 1.4rem 1.6rem;
 }
-.card-head{ margin-bottom:.9rem; }
+
+.card-head{
+  margin-bottom:.9rem;
+}
+
 .tag-purple{
-  display:inline-block; 
-  background:rgba(139,92,246,0.15); 
+  display:inline-block;
+  background:rgba(139,92,246,0.15);
   color:var(--purple);
-  padding:.5rem .85rem; 
-  border-radius:10px; 
-  font-weight:700; 
+  padding:.5rem .85rem;
+  border-radius:10px;
+  font-weight:700;
   letter-spacing:.03em;
   font-size:15px;
   border:1px solid rgba(139,92,246,0.3);
   box-shadow: 0 0 10px rgba(139,92,246,0.2);
 }
-.card-desc{ 
-  color:var(--txt-soft); 
-  font-size:14px; 
+
+.card-desc{
+  color:var(--txt-soft);
+  font-size:14px;
   line-height:1.75;
   margin-bottom:1.1rem;
 }
-.card-actions{ margin-top:1.1rem; display:flex; gap:1.1rem; }
+
+.card-actions{
+  margin-top:1.1rem;
+  display:flex;
+  gap:1.1rem;
+}
+
 .link{
-  color:var(--txt-soft); 
-  text-underline-offset:3px; 
-  font-weight:600; 
+  color:var(--txt-soft);
+  text-underline-offset:3px;
+  font-weight:600;
   text-decoration: underline;
   font-size:14px;
   transition: color .2s ease;
 }
-.link:hover{ color:var(--purple); }
 
-/* ========== CONTACT ========== */
-.contact-section{
-  background:var(--bg-light);
-}
-.contact-grid{
-  display:grid; 
-  grid-template-columns: 1fr 1fr; 
-  gap:26px;
-}
-.contact-card{
-  background:var(--card-bg); 
-  border:1px solid var(--line); 
-  border-radius:16px; 
-  padding:1.4rem 1.5rem;
-  box-shadow: 0 8px 24px rgba(0,0,0,.4);
-}
-.contact-title{ 
-  margin:.2rem 0 1.2rem; 
-  font-size:21px; 
-  font-weight:700; 
-  color:var(--txt);
-}
-.contact-list{ list-style:none; margin:0; padding:0; }
-.contact-list li{ 
-  margin:.8rem 0; 
-  font-size:15px; 
-  color:var(--txt-soft);
-}
-.contact-list a{ 
-  color:var(--txt-soft); 
-  text-decoration:none; 
-  border-bottom:1px dashed rgba(139,92,246,0.4); 
-  transition: all .2s ease;
-}
-.contact-list a:hover{ 
-  border-bottom-color:var(--purple); 
+.link:hover{
   color:var(--purple);
 }
 
-.form{ display:grid; gap:.8rem; }
-.form label{ 
-  font-weight:600; 
-  font-size:14px; 
-  color:var(--txt-soft); 
+.contact-section{
+  background:var(--bg-light);
 }
-.form input, .form textarea{
-  width:100%; 
-  padding:.75rem .9rem; 
-  border-radius:10px; 
-  border:1px solid var(--line); 
+
+.contact-grid{
+  display:grid;
+  grid-template-columns: 1fr 1fr;
+  gap:26px;
+}
+
+.contact-card{
+  background:var(--card-bg);
+  border:1px solid var(--line);
+  border-radius:16px;
+  padding:1.4rem 1.5rem;
+  box-shadow: 0 8px 24px rgba(0,0,0,.4);
+}
+
+.contact-title{
+  margin:.2rem 0 1.2rem;
+  font-size:21px;
+  font-weight:700;
+  color:var(--txt);
+}
+
+.contact-list{
+  list-style:none;
+}
+
+.contact-list li{
+  margin:.8rem 0;
+  font-size:15px;
+  color:var(--txt-soft);
+}
+
+.contact-list a{
+  color:var(--txt-soft);
+  text-decoration:none;
+  border-bottom:1px dashed rgba(139,92,246,0.4);
+  transition: all .2s ease;
+}
+
+.contact-list a:hover{
+  border-bottom-color:var(--purple);
+  color:var(--purple);
+}
+
+.form{
+  display:grid;
+  gap:.8rem;
+}
+
+.form label{
+  font-weight:600;
+  font-size:14px;
+  color:var(--txt-soft);
+}
+
+.form input,
+.form textarea{
+  width:100%;
+  padding:.75rem .9rem;
+  border-radius:10px;
+  border:1px solid var(--line);
   font: inherit;
   background:rgba(255,255,255,0.03);
   color:var(--txt);
   transition: border-color .2s ease, box-shadow .2s ease;
 }
-.form input:focus, .form textarea:focus{
-  outline:none; 
+
+.form input:focus,
+.form textarea:focus{
+  outline:none;
   border-color:var(--purple);
   box-shadow: 0 0 12px rgba(139,92,246,0.3);
 }
+
 .btn-primary{
-  background:var(--purple); 
-  color:#fff; 
-  border:none; 
-  border-radius:12px; 
-  padding:.8rem 1.2rem; 
-  cursor:pointer; 
+  background:var(--purple);
+  color:#fff;
+  border:none;
+  border-radius:12px;
+  padding:.8rem 1.2rem;
+  cursor:pointer;
   font-weight:700;
   transition: background .2s ease, transform .2s ease;
   box-shadow: 0 4px 15px rgba(139,92,246,0.4);
 }
-.btn-primary:hover{ 
-  background:#7c3aed; 
+
+.btn-primary:hover{
+  background:#7c3aed;
   transform:translateY(-2px);
   box-shadow: 0 6px 20px rgba(139,92,246,0.5);
 }
-.form-note{ 
-  color:var(--muted); 
-  font-size:12px; 
-  margin-top:.4rem; 
+
+.form-note{
+  color:var(--muted);
+  font-size:12px;
+  margin-top:.4rem;
 }
 
-/* ========== Footer ========== */
 .site-footer{
-  border-top:1px solid var(--line); 
-  padding: 1.7rem 0; 
-  color:var(--muted); 
+  border-top:1px solid var(--line);
+  padding: 1.7rem 0;
+  color:var(--muted);
   font-size:14px;
   text-align:center;
   background:var(--bg);
 }
 
-/* ========== Responsif ========== */
+/* ========== RESPONSIVE ========== */
 @media (max-width: 900px){
-  html{ scroll-padding-top: 70px; }
-  .home-grid{ 
-    grid-template-columns: 1fr; 
+  html{
+    scroll-padding-top: 70px;
+  }
+  
+  .home-grid{
+    grid-template-columns: 1fr;
     gap:30px;
   }
-  .home-photo{ 
-    order:-1; 
+  
+  .home-photo{
+    order:-1;
     max-width:280px;
     margin:0 auto;
   }
-  .cards{ grid-template-columns: 1fr 1fr; }
-  .contact-grid{ grid-template-columns: 1fr; }
   
-  .nav-toggle{ display:block; }
+  .cards{
+    grid-template-columns: 1fr 1fr;
+  }
+  
+  .contact-grid{
+    grid-template-columns: 1fr;
+  }
+  
+  .nav-toggle{
+    display:block;
+  }
+  
   .nav-list{
-    position:absolute; 
-    right:4%; 
-    top:62px; 
-    background:rgba(16,19,25,0.98); 
+    position:absolute;
+    right:4%;
+    top:62px;
+    background:rgba(16,19,25,0.98);
     border:1px solid var(--line);
-    border-radius:12px; 
-    padding:.6rem; 
-    display:none; 
-    flex-direction:column; 
+    border-radius:12px;
+    padding:.6rem;
+    display:none;
+    flex-direction:column;
     min-width: 190px;
     box-shadow: 0 12px 30px rgba(0,0,0,.6);
     z-index:999;
   }
-  .nav-list.show{ display:flex; }
   
-  /* Tombol masuk lebih kecil di mobile */
+  .nav-list.show{
+    display:flex;
+  }
+  
   .btn-masuk{
     padding: .7rem 2rem;
     font-size: clamp(14px, 4vw, 18px);
   }
-}
-@media (max-width: 560px){
-  .cards{ grid-template-columns: 1fr; }
+  
+  .profile-img{
+    width:clamp(150px, 40vw, 250px);
+    height:clamp(150px, 40vw, 250px);
+  }
 }
 
-/* Prefer reduced motion */
+@media (max-width: 560px){
+  .cards{
+    grid-template-columns: 1fr;
+  }
+}
+
+/* Reduce motion untuk accessibility */
 @media (prefers-reduced-motion: reduce){
-  html{ scroll-behavior: auto; }
-  #intro, .drop, .drop2, .drop3, main, .site-header, .site-footer, 
-  .meteor, .planet, .intro-abstract{ 
-    animation: none !important; 
-    transition: none !important; 
+  *,
+  *::before,
+  *::after{
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
   }
 }
