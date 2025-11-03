@@ -1,3 +1,4 @@
+/* ========== CSS VARIABLES ========== */
 :root{
   --bg: #0a0e17;
   --bg-light: #12171f;
@@ -14,6 +15,7 @@
   --card-hover: #1a1f27;
 }
 
+/* ========== RESET ========== */
 *{
   box-sizing:border-box;
   margin:0;
@@ -441,6 +443,7 @@ body{
     inset -20px -20px 52px rgba(0,0,0,0.5);
 }
 
+/* ========== PROFILE PLACEHOLDER (NO IMAGES) ========== */
 .profile-flex{
   position:relative;
   z-index:10;
@@ -453,17 +456,23 @@ body{
   100%{ opacity:1; transform:translateY(0) scale(1) rotateX(0); }
 }
 
-.profile-img{
+.profile-placeholder{
   width:clamp(200px, 30vw, 350px);
   height:clamp(200px, 30vw, 350px);
-  object-fit:cover;
   border-radius:50%;
+  display:flex;
+  flex-direction:column;
+  align-items:center;
+  justify-content:center;
+  gap:1rem;
   border:5px solid rgba(255,255,255,0.4);
   box-shadow: 
     0 0 40px rgba(255,255,255,0.6),
     0 0 80px rgba(0,231,255,0.4),
     inset 0 0 30px rgba(0,0,0,0.3);
   animation: profileGlow 3s ease-in-out infinite alternate;
+  position:relative;
+  overflow:hidden;
 }
 
 @keyframes profileGlow{
@@ -479,6 +488,28 @@ body{
       0 0 120px rgba(0,231,255,0.6),
       inset 0 0 30px rgba(0,0,0,0.3);
   }
+}
+
+/* Warna per planet */
+.mercury-color{ background: linear-gradient(135deg, #9b8b7e, #4a3b2e); }
+.venus-color{ background: linear-gradient(135deg, #f4d89f, #d89640); }
+.earth-color{ background: linear-gradient(135deg, #6ab3ff, #2e6b9e); }
+.mars-color{ background: linear-gradient(135deg, #f47050, #a84030); }
+.jupiter-color{ background: linear-gradient(135deg, #f4d8a4, #d8a474); }
+.saturn-color{ background: linear-gradient(135deg, #ffe8b3, #d4b682); }
+.uranus-color{ background: linear-gradient(135deg, #7fe4f4, #3a9aac); }
+
+.profile-icon{
+  font-size: clamp(60px, 10vw, 100px);
+  filter: drop-shadow(0 0 20px rgba(255,255,255,0.5));
+}
+
+.profile-name{
+  font-size: clamp(20px, 4vw, 32px);
+  font-weight:700;
+  color:#fff;
+  text-shadow: 0 0 10px rgba(255,255,255,0.8);
+  letter-spacing:.2em;
 }
 
 .planet-label{
@@ -561,25 +592,11 @@ body{
   filter: drop-shadow(0 0 8px rgba(255,255,255,0.8));
 }
 
-.crack-1{
-  animation: drawCrack 0.3s ease-out 1.2s forwards;
-}
-
-.crack-2{
-  animation: drawCrack 0.25s ease-out 1.35s forwards;
-}
-
-.crack-3{
-  animation: drawCrack 0.25s ease-out 1.4s forwards;
-}
-
-.crack-4{
-  animation: drawCrack 0.2s ease-out 1.5s forwards;
-}
-
-.crack-5{
-  animation: drawCrack 0.2s ease-out 1.55s forwards;
-}
+.crack-1{ animation: drawCrack 0.3s ease-out 1.2s forwards; }
+.crack-2{ animation: drawCrack 0.25s ease-out 1.35s forwards; }
+.crack-3{ animation: drawCrack 0.25s ease-out 1.4s forwards; }
+.crack-4{ animation: drawCrack 0.2s ease-out 1.5s forwards; }
+.crack-5{ animation: drawCrack 0.2s ease-out 1.55s forwards; }
 
 @keyframes drawCrack{
   to{
@@ -759,16 +776,34 @@ body::after{
   100%{ opacity:0.9; }
 }
 
-.home-photo img{
+.photo-placeholder{
   width:100%;
   max-width:340px;
   aspect-ratio: 4/5;
-  object-fit:cover;
+  display:flex;
+  flex-direction:column;
+  align-items:center;
+  justify-content:center;
+  gap:1rem;
   border-radius:20px;
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
   box-shadow: 
     0 15px 40px rgba(0,0,0,.5),
     0 0 20px rgba(139,92,246,0.3);
   border:2px solid rgba(139,92,246,0.3);
+}
+
+.photo-icon{
+  font-size:80px;
+  filter: drop-shadow(0 0 10px rgba(255,255,255,0.5));
+}
+
+.photo-text{
+  font-size:28px;
+  font-weight:700;
+  color:#fff;
+  text-shadow: 0 0 10px rgba(255,255,255,0.5);
+  letter-spacing:.2em;
 }
 
 .home-text{
@@ -834,6 +869,8 @@ body::after{
   font-size: clamp(15px, 2.8vw, 18px);
   transition: .25s ease;
   box-shadow: 0 0 15px rgba(139,92,246,0.2);
+  cursor:pointer;
+  font-family:inherit;
 }
 
 .btn-ghost:hover{
@@ -1121,9 +1158,17 @@ body::after{
     font-size: clamp(14px, 4vw, 18px);
   }
   
-  .profile-img{
+  .profile-placeholder{
     width:clamp(150px, 40vw, 250px);
     height:clamp(150px, 40vw, 250px);
+  }
+  
+  .profile-icon{
+    font-size:clamp(40px, 12vw, 70px);
+  }
+  
+  .profile-name{
+    font-size:clamp(16px, 5vw, 24px);
   }
 }
 
