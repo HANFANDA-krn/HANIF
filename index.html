@@ -10,9 +10,8 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet" />
 
-  <!-- Styles & Script -->
+  <!-- CSS External -->
   <link rel="stylesheet" href="styles.css" />
-  <script defer src="script.js"></script>
 </head>
 <body>
 
@@ -45,7 +44,10 @@
     </div>
     <div class="planet-display mercury-planet"></div>
     <div class="profile-flex">
-      <img src="assets/profile-1.jpg" alt="Hanif at Mercury" class="profile-img" />
+      <div class="profile-placeholder mercury-color">
+        <span class="profile-icon">👤</span>
+        <span class="profile-name">HANIF</span>
+      </div>
       <p class="planet-label">MERKURIUS</p>
     </div>
   </div>
@@ -61,7 +63,10 @@
     </div>
     <div class="planet-display venus-planet"></div>
     <div class="profile-flex">
-      <img src="assets/profile-2.jpg" alt="Hanif at Venus" class="profile-img" />
+      <div class="profile-placeholder venus-color">
+        <span class="profile-icon">💼</span>
+        <span class="profile-name">HANIF</span>
+      </div>
       <p class="planet-label">VENUS</p>
     </div>
   </div>
@@ -77,7 +82,10 @@
     </div>
     <div class="planet-display earth-planet"></div>
     <div class="profile-flex">
-      <img src="assets/profile-3.jpg" alt="Hanif at Earth" class="profile-img" />
+      <div class="profile-placeholder earth-color">
+        <span class="profile-icon">🌍</span>
+        <span class="profile-name">HANIF</span>
+      </div>
       <p class="planet-label">BUMI</p>
     </div>
   </div>
@@ -93,7 +101,10 @@
     </div>
     <div class="planet-display mars-planet"></div>
     <div class="profile-flex">
-      <img src="assets/profile-4.jpg" alt="Hanif at Mars" class="profile-img" />
+      <div class="profile-placeholder mars-color">
+        <span class="profile-icon">🚀</span>
+        <span class="profile-name">HANIF</span>
+      </div>
       <p class="planet-label">MARS</p>
     </div>
   </div>
@@ -109,7 +120,10 @@
     </div>
     <div class="planet-display jupiter-planet"></div>
     <div class="profile-flex">
-      <img src="assets/profile-5.jpg" alt="Hanif at Jupiter" class="profile-img" />
+      <div class="profile-placeholder jupiter-color">
+        <span class="profile-icon">⚡</span>
+        <span class="profile-name">HANIF</span>
+      </div>
       <p class="planet-label">JUPITER</p>
     </div>
   </div>
@@ -125,7 +139,10 @@
     </div>
     <div class="planet-display saturn-planet"></div>
     <div class="profile-flex">
-      <img src="assets/profile-6.jpg" alt="Hanif at Saturn" class="profile-img" />
+      <div class="profile-placeholder saturn-color">
+        <span class="profile-icon">🪐</span>
+        <span class="profile-name">HANIF</span>
+      </div>
       <p class="planet-label">SATURNUS</p>
     </div>
   </div>
@@ -141,7 +158,10 @@
     </div>
     <div class="planet-display uranus-planet"></div>
     <div class="profile-flex">
-      <img src="assets/profile-7.jpg" alt="Hanif at Uranus" class="profile-img" />
+      <div class="profile-placeholder uranus-color">
+        <span class="profile-icon">💎</span>
+        <span class="profile-name">HANIF</span>
+      </div>
       <p class="planet-label">URANUS</p>
     </div>
   </div>
@@ -166,12 +186,6 @@
     
     <!-- Kabut hitam -->
     <div class="black-smoke"></div>
-    
-    <!-- Audio SFX -->
-    <audio id="crackSound" preload="auto">
-      <source src="assets/crack-sound.mp3" type="audio/mpeg">
-      <source src="assets/crack-sound.ogg" type="audio/ogg">
-    </audio>
   </div>
 
   <!-- ========== STAGE 9: WEBSITE UTAMA ========== -->
@@ -194,7 +208,10 @@
       <section id="home" class="section home">
         <div class="container home-grid">
           <div class="home-photo">
-            <img src="assets/hanif.jpg" alt="Foto Profil Hanif" />
+            <div class="photo-placeholder">
+              <span class="photo-icon">👨‍💻</span>
+              <span class="photo-text">HANIF</span>
+            </div>
           </div>
 
           <div class="home-text">
@@ -208,7 +225,7 @@
             </p>
             <p class="location">📍 Lokasi Banjarnegara, Madukara</p>
             <div class="cta-row">
-              <a class="btn-ghost" href="assets/cv-hanif.pdf" download>Unduh CV</a>
+              <button class="btn-ghost" onclick="alert('Silakan hubungi via WhatsApp untuk CV!')">Unduh CV</button>
             </div>
             <hr class="divider"/>
             <div class="socials">
@@ -334,5 +351,7 @@
     </footer>
   </div>
 
+  <!-- JavaScript External -->
+  <script src="script.js"></script>
 </body>
 </html>
