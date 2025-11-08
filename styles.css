@@ -191,12 +191,11 @@ body {
     min-height: 80vh;
 }
 
-/* Home Section - SEMUA 7 BARIS */
+/* Home Section */
 .home-section {
     padding-top: 100px;
 }
 
-/* BARIS 1: For WORK */
 .work-label {
     font-size: 1.8rem;
     color: #000000;
@@ -209,7 +208,6 @@ body {
     font-weight: 600;
 }
 
-/* BARIS 2: Hi, I'm Hanif */
 .main-title {
     font-size: 3.5rem;
     color: #000000;
@@ -217,7 +215,6 @@ body {
     font-weight: bold;
 }
 
-/* BARIS 3: Fresh graduate TJKT */
 .subtitle {
     font-size: 2rem;
     color: #000000;
@@ -225,7 +222,6 @@ body {
     font-weight: 500;
 }
 
-/* BARIS 4: Deskripsi */
 .description {
     font-size: 1rem;
     color: #333333;
@@ -234,14 +230,12 @@ body {
     max-width: 700px;
 }
 
-/* BARIS 5: Lokasi */
 .location {
     font-size: 0.95rem;
     color: #000000;
     margin-bottom: 30px;
 }
 
-/* BARIS 6: Unduh CV */
 .download-cv {
     display: inline-block;
     padding: 12px 30px;
@@ -260,7 +254,6 @@ body {
     color: #ffffff;
 }
 
-/* BARIS 7: Divider & Social Media */
 .divider {
     border: none;
     border-top: 2px solid #000000;
@@ -290,7 +283,7 @@ body {
     transform: scale(1.2);
 }
 
-/* About Section - 3 BARIS PERSIS SEPERTI PERMINTAAN */
+/* About Section */
 .about-section {
     background: #f9f9f9;
 }
@@ -307,11 +300,173 @@ body {
     color: #000000;
     line-height: 1.8;
     margin-bottom: 25px;
+    text-align: justify;
 }
 
-/* Contact Section - 2 TABEL LENGKAP */
-.contact-section {
+/* Skills Section */
+.skills-section {
+    margin-top: 50px;
+    padding: 40px;
     background: #ffffff;
+    border-radius: 10px;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+}
+
+.skills-title {
+    font-size: 1.8rem;
+    color: #000000;
+    margin-bottom: 30px;
+    font-weight: bold;
+}
+
+.skills-list {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 25px;
+}
+
+.skill-item {
+    display: flex;
+    gap: 15px;
+    padding: 20px;
+    background: #f9f9f9;
+    border-radius: 8px;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.skill-item:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.15);
+}
+
+.skill-icon {
+    font-size: 2rem;
+    flex-shrink: 0;
+}
+
+.skill-content h4 {
+    font-size: 1.2rem;
+    color: #000000;
+    margin-bottom: 8px;
+    font-weight: 600;
+}
+
+.skill-content p {
+    font-size: 0.95rem;
+    color: #555555;
+    line-height: 1.6;
+    margin-bottom: 0;
+}
+
+/* Education Section */
+.education-section {
+    margin-top: 50px;
+    padding: 40px;
+    background: #ffffff;
+    border-radius: 10px;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+}
+
+.education-title {
+    font-size: 1.8rem;
+    color: #000000;
+    margin-bottom: 25px;
+    font-weight: bold;
+}
+
+.education-card {
+    padding: 25px;
+    background: #f9f9f9;
+    border-radius: 8px;
+    border-left: 4px solid #8b5cf6;
+}
+
+.education-card h4 {
+    font-size: 1.4rem;
+    color: #000000;
+    margin-bottom: 10px;
+    font-weight: bold;
+}
+
+.education-major {
+    font-size: 1.1rem;
+    color: #8b5cf6;
+    margin-bottom: 8px;
+    font-weight: 600;
+}
+
+.education-year {
+    font-size: 1rem;
+    color: #666666;
+    margin-bottom: 15px;
+}
+
+.education-desc {
+    font-size: 1rem;
+    color: #555555;
+    line-height: 1.6;
+    margin-bottom: 0;
+}
+
+/* Motivation Section */
+.motivation-section {
+    margin-top: 50px;
+    padding: 40px;
+    background: #ffffff;
+    border-radius: 10px;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+}
+
+.motivation-title {
+    font-size: 1.8rem;
+    color: #000000;
+    margin-bottom: 30px;
+    font-weight: bold;
+}
+
+.motivation-content {
+    display: flex;
+    flex-direction: column;
+    gap: 25px;
+}
+
+.motivation-item {
+    display: flex;
+    gap: 20px;
+    padding: 20px;
+    background: #f9f9f9;
+    border-radius: 8px;
+    transition: transform 0.3s ease;
+}
+
+.motivation-item:hover {
+    transform: translateX(10px);
+}
+
+.motivation-number {
+    font-size: 2rem;
+    font-weight: bold;
+    color: #8b5cf6;
+    flex-shrink: 0;
+}
+
+.motivation-item h4 {
+    font-size: 1.2rem;
+    color: #000000;
+    margin-bottom: 10px;
+    font-weight: 600;
+}
+
+.motivation-item p {
+    font-size: 1rem;
+    color: #555555;
+    line-height: 1.6;
+    margin-bottom: 0;
+}
+
+/* Contact Section */
+.contact-section {
+    background: #f9f9f9;
 }
 
 .contact-grid {
@@ -328,7 +483,6 @@ body {
     font-weight: 600;
 }
 
-/* TABEL 1: Informasi Kontak */
 .contact-info {
     background: #ffffff;
     padding: 30px;
@@ -349,7 +503,6 @@ body {
     font-size: 1.5rem;
 }
 
-/* TABEL 2: Send Message Form */
 .contact-form {
     background: #ffffff;
     padding: 30px;
@@ -433,7 +586,15 @@ body {
         font-size: 1.5rem;
     }
     
+    .skills-list {
+        grid-template-columns: 1fr;
+    }
+    
     .contact-grid {
         grid-template-columns: 1fr;
+    }
+    
+    .motivation-item {
+        flex-direction: column;
     }
 }
