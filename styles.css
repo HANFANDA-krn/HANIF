@@ -21,18 +21,30 @@ body {
     justify-content: center;
     align-items: center;
     z-index: 9999;
-    animation: slideDown 1s ease-in-out 3s forwards;
+    transition: opacity 0.8s ease, transform 0.8s ease;
 }
 
-@keyframes slideDown {
-    to {
-        transform: translateY(100%);
-        opacity: 0;
-    }
+.loading-screen.slide-out {
+    opacity: 0;
+    transform: translateY(-100%);
+    pointer-events: none;
 }
 
 .loading-content {
     text-align: center;
+    opacity: 0;
+    animation: fadeInDown 1.2s ease forwards;
+}
+
+@keyframes fadeInDown {
+    from {
+        opacity: 0;
+        transform: translateY(-100px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
 }
 
 .neon-text {
@@ -46,6 +58,7 @@ body {
     animation: neonGlow 1.5s ease-in-out infinite alternate;
     font-weight: bold;
     letter-spacing: 3px;
+    margin-bottom: 20px;
 }
 
 @keyframes neonGlow {
@@ -69,30 +82,69 @@ body {
 .designer-text {
     font-size: 1.5rem;
     color: #00d4ff;
-    margin-top: 20px;
+    margin-bottom: 40px;
     letter-spacing: 2px;
+}
+
+.enter-button {
+    padding: 15px 50px;
+    font-size: 1.3rem;
+    font-weight: bold;
+    color: #ffffff;
+    background: linear-gradient(135deg, #00f7ff 0%, #0096ff 100%);
+    border: none;
+    border-radius: 50px;
+    cursor: pointer;
+    letter-spacing: 2px;
+    transition: all 0.3s ease;
+    box-shadow: 
+        0 0 20px rgba(0, 247, 255, 0.5),
+        0 5px 15px rgba(0, 0, 0, 0.3);
+    animation: buttonPulse 2s ease-in-out infinite;
+}
+
+@keyframes buttonPulse {
+    0%, 100% {
+        transform: scale(1);
+        box-shadow: 
+            0 0 20px rgba(0, 247, 255, 0.5),
+            0 5px 15px rgba(0, 0, 0, 0.3);
+    }
+    50% {
+        transform: scale(1.05);
+        box-shadow: 
+            0 0 30px rgba(0, 247, 255, 0.7),
+            0 8px 20px rgba(0, 0, 0, 0.4);
+    }
+}
+
+.enter-button:hover {
+    transform: scale(1.1);
+    background: linear-gradient(135deg, #00d4ff 0%, #0080ff 100%);
+    box-shadow: 
+        0 0 40px rgba(0, 247, 255, 0.8),
+        0 10px 25px rgba(0, 0, 0, 0.5);
+}
+
+.enter-button:active {
+    transform: scale(0.98);
 }
 
 /* Main Content */
 .main-content {
-    display: none;
+    opacity: 0;
+    transform: translateY(50px);
     background: #ffffff;
     box-shadow: inset 0 0 100px rgba(0, 0, 0, 0.3);
     min-height: 100vh;
+    pointer-events: none;
+    transition: opacity 0.8s ease, transform 0.8s ease;
 }
 
 .main-content.active {
-    display: block;
-    animation: fadeIn 1s ease-in-out;
-}
-
-@keyframes fadeIn {
-    from {
-        opacity: 0;
-    }
-    to {
-        opacity: 1;
-    }
+    opacity: 1;
+    transform: translateY(0);
+    pointer-events: auto;
 }
 
 /* Navigation */
@@ -511,6 +563,11 @@ body {
     
     .designer-text {
         font-size: 1rem;
+    }
+    
+    .enter-button {
+        padding: 12px 40px;
+        font-size: 1.1rem;
     }
     
     .navbar ul {
