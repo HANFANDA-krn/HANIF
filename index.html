@@ -1,294 +1,198 @@
 <!DOCTYPE html>
 <html lang="id">
 <head>
-  <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Hanif — Portfolio</title>
-  <link rel="preconnect" href="https://fonts.googleapis.com" />
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet" />
-  <link rel="stylesheet" href="styles.css" />
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hanif Portfolio</title>
+    <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-
-  <!-- ========== STAGE 0: INTRO AWAL ========== -->
-  <div id="intro" class="stage active">
-    <div class="intro-abstract"></div>
-    <div class="meteor meteor-1"></div>
-    <div class="meteor meteor-2"></div>
-    <div class="meteor meteor-3"></div>
-    <div class="planet planet-1"></div>
-    <div class="planet planet-2"></div>
-    
-    <div class="intro-inner">
-      <h1 class="neon drop">MY PROFILE</h1>
-      <p class="neon-sub drop2">Desaigned by <strong>HANIF</strong></p>
-      <button id="btnMasuk" class="btn-masuk drop3">MASUK</button>
-    </div>
-  </div>
-
-  <!-- ========== STAGE 1-7: SPACE JOURNEY ========== -->
-  <div id="journey-mercury" class="stage journey-stage">
-    <div class="space-bg mercury-bg"></div>
-    <div class="journey-stars"></div>
-    <div class="journey-meteors">
-      <div class="j-meteor"></div>
-      <div class="j-meteor"></div>
-      <div class="j-meteor"></div>
-    </div>
-    <div class="planet-display mercury-planet"></div>
-    <div class="profile-flex">
-      <div class="profile-placeholder mercury-color">
-        <span class="profile-icon">👤</span>
-        <span class="profile-name">HANIF</span>
-      </div>
-      <p class="planet-label">MERKURIUS</p>
-    </div>
-  </div>
-
-  <div id="journey-venus" class="stage journey-stage">
-    <div class="space-bg venus-bg"></div>
-    <div class="journey-stars"></div>
-    <div class="journey-meteors">
-      <div class="j-meteor"></div>
-      <div class="j-meteor"></div>
-      <div class="j-meteor"></div>
-    </div>
-    <div class="planet-display venus-planet"></div>
-    <div class="profile-flex">
-      <div class="profile-placeholder venus-color">
-        <span class="profile-icon">💼</span>
-        <span class="profile-name">HANIF</span>
-      </div>
-      <p class="planet-label">VENUS</p>
-    </div>
-  </div>
-
-  <div id="journey-earth" class="stage journey-stage">
-    <div class="space-bg earth-bg"></div>
-    <div class="journey-stars"></div>
-    <div class="journey-meteors">
-      <div class="j-meteor"></div>
-      <div class="j-meteor"></div>
-      <div class="j-meteor"></div>
-    </div>
-    <div class="planet-display earth-planet"></div>
-    <div class="profile-flex">
-      <div class="profile-placeholder earth-color">
-        <span class="profile-icon">🌍</span>
-        <span class="profile-name">HANIF</span>
-      </div>
-      <p class="planet-label">BUMI</p>
-    </div>
-  </div>
-
-  <div id="journey-mars" class="stage journey-stage">
-    <div class="space-bg mars-bg"></div>
-    <div class="journey-stars"></div>
-    <div class="journey-meteors">
-      <div class="j-meteor"></div>
-      <div class="j-meteor"></div>
-      <div class="j-meteor"></div>
-    </div>
-    <div class="planet-display mars-planet"></div>
-    <div class="profile-flex">
-      <div class="profile-placeholder mars-color">
-        <span class="profile-icon">🚀</span>
-        <span class="profile-name">HANIF</span>
-      </div>
-      <p class="planet-label">MARS</p>
-    </div>
-  </div>
-
-  <div id="journey-jupiter" class="stage journey-stage">
-    <div class="space-bg jupiter-bg"></div>
-    <div class="journey-stars"></div>
-    <div class="journey-meteors">
-      <div class="j-meteor"></div>
-      <div class="j-meteor"></div>
-      <div class="j-meteor"></div>
-    </div>
-    <div class="planet-display jupiter-planet"></div>
-    <div class="profile-flex">
-      <div class="profile-placeholder jupiter-color">
-        <span class="profile-icon">⚡</span>
-        <span class="profile-name">HANIF</span>
-      </div>
-      <p class="planet-label">JUPITER</p>
-    </div>
-  </div>
-
-  <div id="journey-saturn" class="stage journey-stage">
-    <div class="space-bg saturn-bg"></div>
-    <div class="journey-stars"></div>
-    <div class="journey-meteors">
-      <div class="j-meteor"></div>
-      <div class="j-meteor"></div>
-      <div class="j-meteor"></div>
-    </div>
-    <div class="planet-display saturn-planet"></div>
-    <div class="profile-flex">
-      <div class="profile-placeholder saturn-color">
-        <span class="profile-icon">🪐</span>
-        <span class="profile-name">HANIF</span>
-      </div>
-      <p class="planet-label">SATURNUS</p>
-    </div>
-  </div>
-
-  <div id="journey-uranus" class="stage journey-stage">
-    <div class="space-bg uranus-bg"></div>
-    <div class="journey-stars"></div>
-    <div class="journey-meteors">
-      <div class="j-meteor"></div>
-      <div class="j-meteor"></div>
-      <div class="j-meteor"></div>
-    </div>
-    <div class="planet-display uranus-planet"></div>
-    <div class="profile-flex">
-      <div class="profile-placeholder uranus-color">
-        <span class="profile-icon">💎</span>
-        <span class="profile-name">HANIF</span>
-      </div>
-      <p class="planet-label">URANUS</p>
-    </div>
-  </div>
-
-  <!-- ========== STAGE 8: METEOR IMPACT ========== -->
-  <div id="meteor-impact" class="stage">
-    <div class="space-bg impact-bg"></div>
-    <div class="big-meteor"></div>
-    <div class="screen-crack">
-      <svg class="crack-svg" viewBox="0 0 1920 1080" preserveAspectRatio="none">
-        <path class="crack-line crack-1" d="M960,0 L960,1080" stroke="#fff" stroke-width="4" fill="none" opacity="0"/>
-        <path class="crack-line crack-2" d="M960,540 L1920,200" stroke="#fff" stroke-width="3" fill="none" opacity="0"/>
-        <path class="crack-line crack-3" d="M960,540 L0,800" stroke="#fff" stroke-width="3" fill="none" opacity="0"/>
-        <path class="crack-line crack-4" d="M960,540 L1400,1080" stroke="#fff" stroke-width="2" fill="none" opacity="0"/>
-        <path class="crack-line crack-5" d="M960,540 L500,0" stroke="#fff" stroke-width="2" fill="none" opacity="0"/>
-      </svg>
-    </div>
-    <div class="black-smoke"></div>
-  </div>
-
-  <!-- ========== STAGE 9: WEBSITE UTAMA ========== -->
-  <div id="main-website" class="stage">
-    <header class="site-header">
-      <nav class="container nav">
-        <a href="#home" class="brand">HANIF</a>
-        <button class="nav-toggle" aria-label="Toggle navigation">&#9776;</button>
-        <ul class="nav-list">
-          <li><a href="#home" class="nav-link active">HOME</a></li>
-          <li><a href="#abouut" class="nav-link">ABOUUT</a></li>
-          <li><a href="#project" class="nav-link">PROJECT</a></li>
-          <li><a href="#contact" class="nav-link">CONTACT</a></li>
-        </ul>
-      </nav>
-    </header>
-
-    <main>
-      <section id="home" class="section home">
-        <div class="container home-grid">
-          <div class="home-photo">
-            <div class="photo-placeholder">
-              <span class="photo-icon">👨‍💻</span>
-              <span class="photo-text">HANIF</span>
-            </div>
-          </div>
-          <div class="home-text">
-            <div class="for-work">For WORK</div>
-            <h1 class="title">Hi, I'm Hanif</h1>
-            <h2 class="subtitle">Fresh graduate TJKT</h2>
-            <p class="lead">Halo, saya Hanif.<br/>Lulusan SMK jurusan TJKT, dengan minat pada jaringan komputer dan teknologi informasi.<br/>Saya siap belajar, berkembang, dan berkontribusi di dunia IT.</p>
-            <p class="location">📍 Lokasi Banjarnegara, Madukara</p>
-            <div class="cta-row">
-              <button class="btn-ghost" onclick="alert('Silakan hubungi via WhatsApp untuk CV!')">Unduh CV</button>
-            </div>
-            <hr class="divider"/>
-            <div class="socials">
-              <span class="follow">Follow me:</span>
-              <a href="https://instagram.com/yourusername" target="_blank" rel="noopener noreferrer">📷</a>
-              <a href="https://discord.com/users/yourid" target="_blank" rel="noopener noreferrer">💬</a>
-              <a href="https://wa.me/6287848707273" target="_blank" rel="noopener noreferrer">📲</a>
-            </div>
-          </div>
+    <!-- Loading Screen -->
+    <div class="loading-screen" id="loadingScreen">
+        <div class="loading-content">
+            <h1 class="neon-text">MY PROFILE</h1>
+            <p class="designer-text">Designed by HANIF</p>
         </div>
-      </section>
+    </div>
 
-      <section id="abouut" class="section about-section">
-        <div class="container narrow">
-          <h2 class="section-title">About</h2>
-          <div class="about-lines">
-            <p>1: Saya adalah lulusan SMK PANCA BHAKTI jurusan TJKT yang memiliki keterkaitan besar IT</p>
-            <p>2: Berpengalaman dalam instalasi dan konfigurasi jaringan, serta perangkat keras dan sistem</p>
-            <p>3: Terbiasa bekerja dengan disiplin dan teliti dalam menyelesaikan setiap project teknologi</p>
-          </div>
-        </div>
-      </section>
+    <!-- Main Website -->
+    <div class="main-content" id="mainContent">
+        <!-- Navigation -->
+        <nav class="navbar">
+            <ul>
+                <li><a href="#home" class="nav-link active">HOME</a></li>
+                <li><a href="#about" class="nav-link">ABOUT</a></li>
+                <li><a href="#contact" class="nav-link">CONTACT</a></li>
+            </ul>
+        </nav>
 
-      <section id="project" class="section project-section">
-        <div class="container">
-          <h2 class="section-title">Project</h2>
-          <div class="cards">
-            <article class="card">
-              <div class="card-body">
-                <div class="card-head"><h3 class="tag-purple">E-COMMERCE Website</h3></div>
-                <p class="card-desc">Project latihan pembuatan website toko online sederhana yang saya kerjakan saat masih di SMK. Dibuat menggunakan HTML, CSS, dan JavaScript dasar untuk memahami alur pembelian online. Masih dalam tahap pembelajaran dan terus saya kembangkan untuk meningkatkan skill coding.</p>
-                <div class="card-actions"><a href="#" class="link">Lihat Demo</a><a href="#" class="link">Source</a></div>
-              </div>
-            </article>
-            <article class="card">
-              <div class="card-body">
-                <div class="card-head"><h3 class="tag-purple">Portofolio Website</h3></div>
-                <p class="card-desc">Website portofolio pribadi ini adalah project pertama saya setelah lulus untuk memperkenalkan diri kepada perusahaan. Saya belajar membuat tampilan responsif dan interaktif agar mudah diakses dari berbagai perangkat. Semoga bisa menunjukkan dedikasi saya di bidang IT.</p>
-                <div class="card-actions"><a href="#" class="link">Lihat Demo</a><a href="#" class="link">Source</a></div>
-              </div>
-            </article>
-            <article class="card">
-              <div class="card-body">
-                <div class="card-head"><h3 class="tag-purple">BLOG WEBSITE</h3></div>
-                <p class="card-desc">Project latihan website blog sederhana untuk berbagi catatan belajar IT dan teknologi. Saya membuat ini untuk melatih kemampuan layout dan manajemen konten. Kedepannya ingin saya gunakan untuk dokumentasi pembelajaran selama mencari pengalaman kerja.</p>
-                <div class="card-actions"><a href="#" class="link">Lihat Demo</a><a href="#" class="link">Source</a></div>
-              </div>
-            </article>
-          </div>
-        </div>
-      </section>
-
-      <section id="contact" class="section contact-section">
-        <div class="container">
-          <h2 class="section-title">Contact</h2>
-          <div class="contact-grid">
-            <div class="contact-card">
-              <h3 class="contact-title">Informasi</h3>
-              <ul class="contact-list">
-                <li>📧 <a href="mailto:faqihhan123@gmail.com">faqihhan123@gmail.com</a></li>
-                <li>📞 <a href="tel:+6287848707273">0878 4870 7273</a></li>
-                <li>📍 Banjarnegara, Madukara</li>
-              </ul>
+        <!-- Home Section -->
+        <section id="home" class="section home-section">
+            <div class="container">
+                <h2 class="work-label">For WORK</h2>
+                <h1 class="main-title">Hi, I'm Hanif</h1>
+                <h3 class="subtitle">Fresh graduate TJKT</h3>
+                <p class="description">
+                    Halo, saya Hanif.<br>
+                    Lulusan SMK jurusan TJKT, dengan minat pada jaringan komputer dan teknologi informasi.<br>
+                    Saya siap belajar, berkembang, dan berkontribusi di dunia IT.
+                </p>
+                <p class="location">📍 Lokasi Banjarnegara, Madukara</p>
+                <a href="#" class="download-cv" onclick="downloadCV(event)">Unduh CV</a>
+                
+                <hr class="divider">
+                
+                <div class="social-media">
+                    <span class="follow-text">Follow me:</span>
+                    <a href="#" class="social-link">📷</a>
+                    <a href="#" class="social-link">💬</a>
+                    <a href="#" class="social-link">📱</a>
+                </div>
             </div>
-            <div class="contact-card">
-              <h3 class="contact-title">Send Message</h3>
-              <form id="contactForm" class="form">
-                <label for="name">Your name:</label>
-                <input type="text" id="name" name="name" placeholder="Nama Anda" required />
-                <label for="email">Your Email:</label>
-                <input type="email" id="email" name="email" placeholder="email@contoh.com" required />
-                <label for="message">Your message:</label>
-                <textarea id="message" name="message" rows="4" placeholder="Tulis pesan..." required></textarea>
-                <button type="submit" class="btn-primary">Kirim</button>
-                <p class="form-note">Form ini akan membuka aplikasi email Anda (mailto).</p>
-              </form>
+        </section>
+
+        <!-- About Section -->
+        <section id="about" class="section about-section">
+            <div class="container">
+                <h2 class="section-title">ABOUT ME</h2>
+                <div class="about-content">
+                    <p>Saya adalah lulusan baru SMK PANCA BHAKTI jurusan Teknik Jaringan Komputer dan Telekomunikasi (TJKT). Selama masa pendidikan, saya telah mempelajari berbagai aspek teknologi informasi mulai dari instalasi jaringan, konfigurasi perangkat keras, troubleshooting sistem, hingga dasar-dasar keamanan jaringan.</p>
+                    
+                    <p>Saya memiliki pengalaman praktik dalam menginstal dan mengkonfigurasi jaringan komputer, melakukan perawatan perangkat keras, serta mengelola sistem operasi Windows dan Linux. Saya juga terbiasa bekerja dengan disiplin, teliti, dan penuh tanggung jawab dalam menyelesaikan setiap tugas teknologi yang diberikan.</p>
+                    
+                    <p>Sebagai fresh graduate, saya sangat antusias untuk memulai karir di bidang IT. Saya siap belajar hal-hal baru, beradaptasi dengan lingkungan kerja profesional, dan memberikan kontribusi terbaik untuk perusahaan. Saya percaya bahwa dedikasi, kemauan belajar yang tinggi, dan passion terhadap teknologi akan membantu saya berkembang menjadi profesional IT yang kompeten.</p>
+                    
+                    <div class="skills-section">
+                        <h3 class="skills-title">Keahlian & Kompetensi</h3>
+                        <div class="skills-list">
+                            <div class="skill-item">
+                                <span class="skill-icon">🌐</span>
+                                <div class="skill-content">
+                                    <h4>Jaringan Komputer</h4>
+                                    <p>Instalasi dan konfigurasi LAN/WAN, pengkabelan terstruktur, dan troubleshooting jaringan</p>
+                                </div>
+                            </div>
+                            <div class="skill-item">
+                                <span class="skill-icon">💻</span>
+                                <div class="skill-content">
+                                    <h4>Perangkat Keras</h4>
+                                    <p>Perakitan komputer, maintenance hardware, dan instalasi perangkat jaringan</p>
+                                </div>
+                            </div>
+                            <div class="skill-item">
+                                <span class="skill-icon">⚙️</span>
+                                <div class="skill-content">
+                                    <h4>Sistem Operasi</h4>
+                                    <p>Instalasi dan konfigurasi Windows Server, Linux, serta troubleshooting sistem</p>
+                                </div>
+                            </div>
+                            <div class="skill-item">
+                                <span class="skill-icon">🔒</span>
+                                <div class="skill-content">
+                                    <h4>Keamanan Jaringan</h4>
+                                    <p>Pemahaman dasar firewall, VPN, dan implementasi keamanan jaringan sederhana</p>
+                                </div>
+                            </div>
+                            <div class="skill-item">
+                                <span class="skill-icon">🛠️</span>
+                                <div class="skill-content">
+                                    <h4>Troubleshooting</h4>
+                                    <p>Diagnosis dan perbaikan masalah hardware, software, dan konektivitas jaringan</p>
+                                </div>
+                            </div>
+                            <div class="skill-item">
+                                <span class="skill-icon">📊</span>
+                                <div class="skill-content">
+                                    <h4>Dokumentasi Teknis</h4>
+                                    <p>Pembuatan laporan kerja, dokumentasi sistem, dan administrasi IT</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="education-section">
+                        <h3 class="education-title">Pendidikan</h3>
+                        <div class="education-card">
+                            <h4>SMK PANCA BHAKTI</h4>
+                            <p class="education-major">Teknik Jaringan Komputer dan Telekomunikasi (TJKT)</p>
+                            <p class="education-year">Tahun Lulus: 2024</p>
+                            <p class="education-desc">Fokus pembelajaran pada jaringan komputer, infrastruktur IT, dan teknologi telekomunikasi dengan praktik langsung di laboratorium dan kerja industri.</p>
+                        </div>
+                    </div>
+
+                    <div class="motivation-section">
+                        <h3 class="motivation-title">Mengapa Memilih Saya?</h3>
+                        <div class="motivation-content">
+                            <div class="motivation-item">
+                                <span class="motivation-number">01</span>
+                                <div>
+                                    <h4>Semangat Belajar Tinggi</h4>
+                                    <p>Sebagai fresh graduate, saya memiliki energi dan antusiasme tinggi untuk mempelajari teknologi baru dan mengembangkan skill secara berkelanjutan.</p>
+                                </div>
+                            </div>
+                            <div class="motivation-item">
+                                <span class="motivation-number">02</span>
+                                <div>
+                                    <h4>Adaptif & Fleksibel</h4>
+                                    <p>Saya siap beradaptasi dengan budaya kerja perusahaan dan fleksibel dalam menghadapi tantangan serta perubahan teknologi.</p>
+                                </div>
+                            </div>
+                            <div class="motivation-item">
+                                <span class="motivation-number">03</span>
+                                <div>
+                                    <h4>Dedikasi & Tanggung Jawab</h4>
+                                    <p>Saya berkomitmen untuk memberikan hasil kerja terbaik dengan disiplin tinggi dan bertanggung jawab penuh terhadap setiap tugas yang diberikan.</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
             </div>
-          </div>
-        </div>
-      </section>
-    </main>
+        </section>
 
-    <footer class="site-footer">
-      <div class="container"><p>&copy; <span id="year"></span> Hanif. Dibuat dengan ♥ dan semangat belajar.</p></div>
-    </footer>
-  </div>
+        <!-- Contact Section -->
+        <section id="contact" class="section contact-section">
+            <div class="container">
+                <h2 class="section-title">CONTACT</h2>
+                <div class="contact-grid">
+                    <div class="contact-info">
+                        <h3 class="contact-subtitle">Informasi Kontak</h3>
+                        <div class="info-item">
+                            <span class="info-icon">📧</span>
+                            <span>faqihhan123@gmail.com</span>
+                        </div>
+                        <div class="info-item">
+                            <span class="info-icon">📞</span>
+                            <span>0878 4870 7273</span>
+                        </div>
+                        <div class="info-item">
+                            <span class="info-icon">📍</span>
+                            <span>Banjarnegara, Madukara</span>
+                        </div>
+                    </div>
+                    <div class="contact-form">
+                        <h3 class="contact-subtitle">Send Message</h3>
+                        <form onsubmit="sendMessage(event)">
+                            <div class="form-group">
+                                <label>Your name:</label>
+                                <input type="text" required>
+                            </div>
+                            <div class="form-group">
+                                <label>Your Email:</label>
+                                <input type="email" required>
+                            </div>
+                            <div class="form-group">
+                                <label>Your message:</label>
+                                <textarea rows="5" required></textarea>
+                            </div>
+                            <button type="submit" class="submit-btn">Send Message</button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </div>
 
-  <script src="script.js"></script>
+    <script src="script.js"></script>
 </body>
 </html>
