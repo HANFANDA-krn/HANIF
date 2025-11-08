@@ -1,140 +1,124 @@
-// ========== SEQUENCE CONTROLLER ========== 
-let currentStage = 0;
-const stages = [
-  'intro',
-  'journey-mercury',
-  'journey-venus',
-  'journey-earth',
-  'journey-mars',
-  'journey-jupiter',
-  'journey-saturn',
-  'journey-uranus',
-  'meteor-impact',
-  'main-website'
-];
-
-function showStage(index) {
-  document.querySelectorAll('.stage').forEach(stage => {
-    stage.classList.remove('active');
-  });
-  
-  const targetStage = document.getElementById(stages[index]);
-  if (targetStage) {
-    targetStage.classList.add('active');
-    currentStage = index;
-  }
-}
-
-// ========== TOMBOL MASUK: Start Journey ========== 
-const btnMasuk = document.getElementById('btnMasuk');
-if (btnMasuk) {
-  btnMasuk.addEventListener('click', startJourney);
-}
-
-function startJourney() {
-  showStage(1); // Mulai dari Merkurius
-  
-  let planetIndex = 1;
-  const planetInterval = setInterval(() => {
-    planetIndex++;
-    if (planetIndex <= 7) {
-      showStage(planetIndex);
-    } else {
-      clearInterval(planetInterval);
-      setTimeout(playMeteorImpact, 1500);
-    }
-  }, 3000); // 3 detik per planet
-}
-
-// ========== METEOR IMPACT SEQUENCE ========== 
-function playMeteorImpact() {
-  showStage(8);
-  setTimeout(() => {
-    showStage(9);
-  }, 3500);
-}
-
-// ========== TAHUN DINAMIS ========== 
-document.addEventListener('DOMContentLoaded', () => {
-  const yearEl = document.getElementById('year');
-  if (yearEl) {
-    yearEl.textContent = new Date().getFullYear();
-  }
+// Loading Screen Animation
+window.addEventListener('load', function() {
+    setTimeout(function() {
+        document.getElementById('mainContent').classList.add('active');
+    }, 3000);
 });
 
-// ========== TOGGLE MOBILE NAV ========== 
-const navToggle = document.querySelector('.nav-toggle');
-const navList = document.querySelector('.nav-list');
-if (navToggle && navList) {
-  navToggle.addEventListener('click', () => {
-    navList.classList.toggle('show');
-  });
-}
-
-// ========== SMOOTH SCROLL & ACTIVE STATE ========== 
-const navLinks = document.querySelectorAll('.nav-link');
-const sections = document.querySelectorAll('section[id]');
-
-function setActiveLink() {
-  let current = 'home';
-  const scrollY = window.pageYOffset;
-
-  sections.forEach(section => {
-    const sectionTop = section.offsetTop - 100;
-    const sectionHeight = section.offsetHeight;
-    const sectionId = section.getAttribute('id');
-
-    if (scrollY >= sectionTop && scrollY < sectionTop + sectionHeight) {
-      current = sectionId;
-    }
-  });
-
-  navLinks.forEach(link => {
-    link.classList.remove('active');
-    if (link.getAttribute('href') === `#${current}`) {
-      link.classList.add('active');
-    }
-  });
-}
-
-const mainWebsite = document.getElementById('main-website');
-if (mainWebsite) {
-  mainWebsite.addEventListener('scroll', setActiveLink);
-  window.addEventListener('scroll', setActiveLink);
-}
-
-navLinks.forEach(link => {
-  link.addEventListener('click', () => {
-    if (navList) {
-      navList.classList.remove('show');
-    }
-  });
+// Smooth Scrolling
+document.querySelectorAll('.nav-link').forEach(link => {
+    link.addEventListener('click', function(e) {
+        e.preventDefault();
+        
+        // Remove active class from all links
+        document.querySelectorAll('.nav-link').forEach(l => {
+            l.classList.remove('active');
+        });
+        
+        // Add active class to clicked link
+        this.classList.add('active');
+        
+        // Get target section
+        const targetId = this.getAttribute('href');
+        const targetSection = document.querySelector(targetId);
+        
+        // Smooth scroll to section
+        targetSection.scrollIntoView({
+            behavior: 'smooth',
+            block: 'start'
+        });
+    });
 });
 
-// ========== FORM CONTACT ========== 
-const form = document.getElementById('contactForm');
-if (form) {
-  form.addEventListener('submit', (e) => {
+// Change active nav on scroll
+window.addEventListener('scroll', function() {
+    let current = '';
+    const sections = document.querySelectorAll('.section');
+    
+    sections.forEach(section => {
+        const sectionTop = section.offsetTop;
+        const sectionHeight = section.clientHeight;
+        
+        if (pageYOffset >= sectionTop - 200) {
+            current = section.getAttribute('id');
+        }
+    });
+    
+    document.querySelectorAll('.nav-link').forEach(link => {
+        link.classList.remove('active');
+        if (link.getAttribute('href') === '#' + current) {
+            link.classList.add('active');
+        }
+    });
+});
+
+// Download CV Function
+function downloadCV(e) {
+    e.preventDefault();
+    alert('Terima kasih atas ketertarikan Anda!
+Untuk mendapatkan CV lengkap, silakan hubungi saya melalui:
+Email: faqihhan123@gmail.com
+WhatsApp: 0878 4870 7273
+Saya siap berdiskusi lebih lanjut mengenai peluang kerja yang tersedia.');
+}
+
+// Send Message Function
+function sendMessage(e) {
     e.preventDefault();
     
-    const name = form.name.value.trim();
-    const email = form.email.value.trim();
-    const message = form.message.value.trim();
-
-    if (!name || !email || !message) {
-      alert('Mohon lengkapi semua field!');
-      return;
-    }
-
-    const body = `Halo Hanif,%0D%0A%0D%0ANama: ${encodeURIComponent(name)}%0D%0AEmail: ${encodeURIComponent(email)}%0D%0APesan:%0D%0A${encodeURIComponent(message)}%0D%0A%0D%0ATerkirim dari halaman portofolio.`;
-    const subject = `Portofolio — Pesan dari ${encodeURIComponent(name || 'Pengunjung')}`;
-    const mailto = `mailto:faqihhan123@gmail.com?subject=${subject}&body=${body}`;
-
-    window.location.href = mailto;
-  });
+    const form = e.target;
+    const name = form.querySelector('input[type="text"]').value;
+    const email = form.querySelector('input[type="email"]').value;
+    const message = form.querySelector('textarea').value;
+    
+    // Simulate sending message
+    alert(`Terima kasih ${name}!
+Pesan Anda telah diterima.
+Saya akan segera menghubungi Anda melalui ${email} untuk diskusi lebih lanjut.
+Salam,
+Hanif`);
+    
+    // Reset form
+    form.reset();
 }
 
-// ========== DEBUG CONSOLE (OPSIONAL - BISA DIHAPUS) ========== 
-console.log('✅ Script loaded successfully!');
-console.log('📂 Stages available:', stages);
-console.log('🚀 Ready to start journey!');
+// Parallax Effect on Scroll
+window.addEventListener('scroll', function() {
+    const scrolled = window.pageYOffset;
+    const parallax = document.querySelector('.home-section');
+    
+    if (parallax) {
+        parallax.style.transform = `translateY(${scrolled * 0.3}px)`;
+    }
+});
+
+// Add animation to skills on scroll
+const observerOptions = {
+    threshold: 0.2,
+    rootMargin: '0px 0px -100px 0px'
+};
+
+const observer = new IntersectionObserver(function(entries) {
+    entries.forEach(entry => {
+        if (entry.isIntersecting) {
+            entry.target.style.opacity = '1';
+            entry.target.style.transform = 'translateY(0)';
+        }
+    });
+}, observerOptions);
+
+// Animate skill items
+document.querySelectorAll('.skill-item').forEach(item => {
+    item.style.opacity = '0';
+    item.style.transform = 'translateY(30px)';
+    item.style.transition = 'all 0.6s ease';
+    observer.observe(item);
+});
+
+// Animate motivation items
+document.querySelectorAll('.motivation-item').forEach(item => {
+    item.style.opacity = '0';
+    item.style.transform = 'translateX(-30px)';
+    item.style.transition = 'all 0.6s ease';
+    observer.observe(item);
+});
