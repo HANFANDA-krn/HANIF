@@ -1,8 +1,15 @@
-// Loading Screen Animation
-window.addEventListener('load', function() {
+// Enter Button Click Handler
+document.getElementById('enterButton').addEventListener('click', function() {
+    const loadingScreen = document.getElementById('loadingScreen');
+    const mainContent = document.getElementById('mainContent');
+    
+    // Add slide-out animation to loading screen
+    loadingScreen.classList.add('slide-out');
+    
+    // Show main content after animation
     setTimeout(function() {
-        document.getElementById('mainContent').classList.add('active');
-    }, 3000);
+        mainContent.classList.add('active');
+    }, 400);
 });
 
 // Smooth Scrolling
