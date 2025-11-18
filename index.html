@@ -9,6 +9,21 @@
 <body>
   <!-- Splash Screen -->
   <div id="splash">
+    <div id="floating-elements">
+      <!-- 3 pensil -->
+      <div class="floating pencil pencil1">✏️</div>
+      <div class="floating pencil pencil2">✏️</div>
+      <div class="floating pencil pencil3">✏️</div>
+      <!-- 3 buku -->
+      <div class="floating book book1">📚</div>
+      <div class="floating book book2">📚</div>
+      <div class="floating book book3">📚</div>
+      <!-- 3 penghapus -->
+      <div class="floating eraser eraser1">🧽</div>
+      <div class="floating eraser eraser2">🧽</div>
+      <div class="floating eraser eraser3">🧽</div>
+    </div>
+
     <div class="splash-content">
       <div class="nickname-container">
         <h1 class="nickname">MY PROFILE</h1>
@@ -37,26 +52,32 @@
       <!-- HOME Section -->
       <section id="home" class="section">
         <div class="home-container">
-          <h1 class="work-label">For WORK</h1>
-          <h2 class="hi-hanif">Hi, I'm Hanif</h2>
-          <h3 class="graduate">Fresh Graduate SMK PANCA BHAKTI</h3>
-          <p class="intro">
-            Halo, saya Hanif.<br />
-            Baru saja lulus dari SMK PANCA BHAKTI jurusan Teknik Jaringan Komputer dan Telekomunikasi (TJKT).<br />
-            Saya sangat tertarik dengan dunia jaringan komputer dan teknologi informasi.<br />
-            Saya siap belajar, berkembang, dan berkontribusi di dunia IT.
-          </p>
-          <p class="location">📍 Lokasi Banjarnnegara, Madukara</p>
-          <button class="cv-btn" aria-label="Unduh CV">Unduh CV</button>
+          <div class="top-section">
+            <div class="text-content">
+              <h1 class="work-label">For WORK</h1>
+              <h2 class="hi-hanif">Hi, I'm Hanif</h2>
+              <h3 class="graduate">Fresh Graduate SMK PANCA BHAKTI</h3>
+              <p class="intro">
+                Halo, saya Hanif.<br />
+                Baru saja lulus dari SMK PANCA BHAKTI jurusan Teknik Jaringan Komputer dan Telekomunikasi (TJKT).<br />
+                Saya sangat tertarik dengan dunia jaringan komputer dan teknologi informasi.<br />
+                Saya siap belajar, berkembang, dan berkontribusi di dunia IT.
+              </p>
+              <p class="location">📍 Lokasi Banjarnnegara, Madukara</p>
+              <button class="cv-btn" aria-label="Unduh CV">Unduh CV</button>
+            </div>
 
-          <!-- Kartu Foto 3D -->
-          <div id="profile-card" class="profile-card">
-            <div class="card-inner">
-              <div class="card-front">
-                <div class="photo-placeholder">Foto 1</div>
-              </div>
-              <div class="card-back">
-                <div class="photo-placeholder back">Foto 2</div>
+            <div class="profile-card-wrapper">
+              <!-- Kartu Foto 3D -->
+              <div id="profile-card" class="profile-card" tabindex="0" aria-label="Kartu profil 3D dapat diputar dengan drag atau touch">
+                <div class="card-inner">
+                  <div class="card-front">
+                    <div class="photo-placeholder">Foto 1</div>
+                  </div>
+                  <div class="card-back">
+                    <div class="photo-placeholder back">Foto 2</div>
+                  </div>
+                </div>
               </div>
             </div>
           </div>
