@@ -45,9 +45,10 @@ body, html {
 
 .floating {
   position: absolute;
-  font-size: 1.8rem;
+  font-size: 3.2rem;       /* diperbesar dari ~1.8rem */
   opacity: 0.15;
   animation-timing-function: linear;
+  user-select: none;
 }
 
 /* Positions and animations for each floating item */
@@ -77,21 +78,21 @@ body, html {
   top: 50%;
   left: 50%;
   animation: spinAroundCenter 14s linear infinite;
-  font-size: 2rem;
+  font-size: 3.7rem; /* diperbesar */
 }
 
 .book2 {
   top: 50%;
   left: 50%;
   animation: spinAroundCenter 18s linear infinite reverse;
-  font-size: 1.7rem;
+  font-size: 3.4rem; /* diperbesar */
 }
 
 .book3 {
   top: 50%;
   left: 50%;
   animation: spinAroundCenter 24s linear infinite;
-  font-size: 1.5rem;
+  font-size: 3.2rem; /* diperbesar */
 }
 
 /* Penghapus: float slowly left-right */
@@ -100,21 +101,21 @@ body, html {
   top: 20%;
   left: 80%;
   animation: floatEraserHorizontal 14s ease-in-out infinite;
-  font-size: 1.8rem;
+  font-size: 3.2rem; /* diperbesar */
 }
 
 .eraser2 {
   top: 45%;
   left: 85%;
   animation: floatEraserHorizontal 12s ease-in-out infinite reverse;
-  font-size: 1.9rem;
+  font-size: 3.5rem; /* diperbesar */
 }
 
 .eraser3 {
   top: 70%;
   left: 75%;
   animation: floatEraserHorizontal 15s ease-in-out infinite;
-  font-size: 1.7rem;
+  font-size: 3rem; /* diperbesar */
 }
 
 /* Animations of floating elements */
@@ -147,79 +148,81 @@ body, html {
   50%      { transform: translateX(30px);}
 }
 
-
 /* Splash content */
 
 .splash-content {
   position: relative;
   text-align: center;
   z-index: 10;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1rem;
 }
 
 .nickname-container {
   display: inline-block;
   position: relative;
-  padding: 1.5rem 3rem;
+  padding: 1.8rem 3rem;
 }
 
 .nickname {
-  font-size: 3.5rem;
+  font-size: 4.5rem; /* diperbesar */
   font-weight: 900;
   line-height: 1.2;
-  position: relative;
-  z-index: 10;
   color: #00ffff;
   text-shadow:
-    0 0 5px #0ff,
-    0 0 10px #0ff,
-    0 0 20px #0ff,
-    0 0 30px #04d7fa,
-    0 0 40px #04d7fa;
+    0 0 8px #0ff,
+    0 0 15px #0ff,
+    0 0 30px #0ff,
+    0 0 45px #04d7fa,
+    0 0 60px #04d7fa;
+  position: relative;
+  z-index: 10;
 }
 
 /* Designer Text */
 .designer {
-  font-size: 1.7rem;
+  font-size: 2rem; /* diperbesar */
   font-weight: 600;
   letter-spacing: 0.1em;
-  margin-top: 1rem;
   color: #00ffff;
   text-shadow:
-    0 0 5px #0ff,
-    0 0 10px #0ff;
+    0 0 8px #0ff,
+    0 0 15px #0ff;
 }
 
 /* Rings */
 
 .ring {
   position: absolute;
-  border: 2px solid #aaa;
+  border: 3px solid #aaa;
   border-radius: 50%;
-  opacity: 0.5;
+  opacity: 0.45;
   box-sizing: border-box;
   animation-iteration-count: infinite;
   animation-timing-function: linear;
 }
 
 .ring1 {
-  width: 160px;
-  height: 160px;
+  width: 190px;
+  height: 190px;
   top: 50%;
   left: 50%;
-  margin-left: -80px;
-  margin-top: -80px;
+  margin-left: -95px;
+  margin-top: -95px;
   animation-name: spinClockwise;
   animation-duration: 12s;
   border-color: #888;
 }
 
 .ring2 {
-  width: 120px;
-  height: 120px;
+  width: 150px;
+  height: 150px;
   top: 50%;
   left: 50%;
-  margin-left: -60px;
-  margin-top: -60px;
+  margin-left: -75px;
+  margin-top: -75px;
   animation-name: spinCounterClockwise;
   animation-duration: 7s;
   border-color: #999;
@@ -228,17 +231,47 @@ body, html {
 }
 
 .ring3 {
-  width: 200px;
-  height: 200px;
+  width: 230px;
+  height: 230px;
   top: 50%;
   left: 50%;
-  margin-left: -100px;
-  margin-top: -100px;
+  margin-left: -115px;
+  margin-top: -115px;
   animation-name: spinClockwise;
   animation-duration: 20s;
   border-color: #777;
   border-style: dashed;
   opacity: 0.4;
+}
+
+/* MASUK button */
+
+#enter-btn {
+  margin-top: 5px;
+  padding: 0.65rem 2.2rem;
+  font-size: 1.3rem;
+  font-weight: 700;
+  color: white;
+  background: transparent;
+  border: 2.6px solid white;
+  border-radius: 30px;
+  cursor: pointer;
+  font-family: 'Georgia', serif;
+  text-transform: uppercase;
+  letter-spacing: 0.12em;
+  transition: all 0.3s ease;
+  user-select: none;
+  box-shadow:
+    0 0 8px rgba(255 255 255 / 0.75);
+}
+
+#enter-btn:hover,
+#enter-btn:focus {
+  background-color: #00ffff;
+  color: #003c3c;
+  outline: none;
+  box-shadow:
+    0 0 20px rgba(0, 255, 255, 0.9);
 }
 
 @keyframes spinClockwise {
