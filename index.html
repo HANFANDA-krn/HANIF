@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Portofolio Hanif</title>
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <!-- Splash Screen -->
+  <div id="splash">
+    <div class="splash-content">
+      <div class="nickname-container">
+        <h1 class="nickname">MY PROFILE</h1>
+        <!-- Ring elements around nickname -->
+        <span class="ring ring1"></span>
+        <span class="ring ring2"></span>
+        <span class="ring ring3"></span>
+      </div>
+      <h2 class="designer">Designed by HANIF</h2>
+    </div>
+  </div>
+
+  <!-- Main Website -->
+  <div id="main-site" class="hidden">
+    <header>
+      <nav>
+        <ul>
+          <li><a href="#home" class="nav-link active">HOME</a></li>
+          <li><a href="#about" class="nav-link">ABOUT</a></li>
+          <li><a href="#contact" class="nav-link">CONTACT</a></li>
+        </ul>
+      </nav>
+    </header>
+
+    <main>
+      <!-- HOME Section -->
+      <section id="home" class="section">
+        <div class="home-container">
+          <h1 class="work-label">For WORK</h1>
+          <h2 class="hi-hanif">Hi, I'm Hanif</h2>
+          <h3 class="graduate">Fresh Graduate SMK PANCA BHAKTI</h3>
+          <p class="intro">
+            Halo, saya Hanif.<br />
+            Baru saja lulus dari SMK PANCA BHAKTI jurusan Teknik Jaringan Komputer dan Telekomunikasi (TJKT).<br />
+            Saya sangat tertarik dengan dunia jaringan komputer dan teknologi informasi.<br />
+            Saya siap belajar, berkembang, dan berkontribusi di dunia IT.
+          </p>
+          <p class="location">📍 Lokasi Banjarnnegara, Madukara</p>
+          <button class="cv-btn" aria-label="Unduh CV">Unduh CV</button>
+
+          <!-- Kartu Foto 3D -->
+          <div id="profile-card" class="profile-card">
+            <div class="card-inner">
+              <div class="card-front">
+                <div class="photo-placeholder">Foto 1</div>
+              </div>
+              <div class="card-back">
+                <div class="photo-placeholder back">Foto 2</div>
+              </div>
+            </div>
+          </div>
+
+          <hr />
+          <div class="follow-me">
+            Follow me : 
+            <span class="emoji">📸</span> 
+            <span class="emoji">🎮</span> 
+            <span class="emoji">📱</span>
+          </div>
+        </div>
+      </section>
+
+      <!-- ABOUT Section -->
+      <section id="about" class="section">
+        <div class="about-container">
+          <p>Saya adalah lulusan baru SMK PANCA BHAKTI jurusan TJKT yang memiliki minat besar di dunia IT.</p>
+          <p>Saya sedang mempersiapkan diri untuk berkarir di bidang jaringan komputer dan teknologi informasi.</p>
+          <p>Saya terbiasa belajar dengan disiplin dan bersemangat untuk mengembangkan skill di bidang teknologi.</p>
+        </div>
+      </section>
+
+      <!-- CONTACT Section -->
+      <section id="contact" class="section">
+        <div class="contact-container">
+          <table class="contact-info">
+            <tbody>
+              <tr><td>📧</td><td>faqihhan123@gmail.com</td></tr>
+              <tr><td>📞</td><td>0878 4870 7273</td></tr>
+              <tr><td>📍</td><td>Banjarnegara, Madukara</td></tr>
+            </tbody>
+          </table>
+
+          <table class="contact-form">
+            <tbody>
+              <tr>
+                <td><label for="name">Your name:</label></td>
+                <td><input type="text" id="name" name="name" /></td>
+              </tr>
+              <tr>
+                <td><label for="email">Your Email:</label></td>
+                <td><input type="email" id="email" name="email" /></td>
+              </tr>
+              <tr>
+                <td><label for="message">Your message:</label></td>
+                <td><textarea id="message" name="message" rows="3"></textarea></td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </section>
+    </main>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>
